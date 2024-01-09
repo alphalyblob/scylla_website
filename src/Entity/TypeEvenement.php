@@ -18,12 +18,12 @@ class TypeEvenement
     #[ORM\Column(length: 40)]
     private ?string $label = null;
 
-    #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: Evenements::class, orphanRemoval: true)]
-    private Collection $typeevenements;
+    #[ORM\OneToMany(mappedBy: 'typeEvenement', targetEntity: Evenements::class, orphanRemoval: true)]
+    private Collection $evenements;
 
     public function __construct()
     {
-        $this->typeevenements = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -46,27 +46,27 @@ class TypeEvenement
     /**
      * @return Collection<int, Evenements>
      */
-    public function getTypeevenements(): Collection
+    public function getEvenements(): Collection
     {
-        return $this->typeevenements;
+        return $this->evenements;
     }
 
-    public function addTypeevenement(Evenements $typeevenement): static
+    public function addEvenement(Evenements $evenement): static
     {
-        if (!$this->typeevenements->contains($typeevenement)) {
-            $this->typeevenements->add($typeevenement);
-            $typeevenement->setEvenement($this);
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements->add($evenement);
+            $evenement->setTypeEvenement($this);
         }
 
         return $this;
     }
 
-    public function removeTypeevenement(Evenements $typeevenement): static
+    public function removeEvenement(Evenements $evenement): static
     {
-        if ($this->typeevenements->removeElement($typeevenement)) {
+        if ($this->evenements->removeElement($evenement)) {
             // set the owning side to null (unless already changed)
-            if ($typeevenement->getEvenement() === $this) {
-                $typeevenement->setEvenement(null);
+            if ($evenement->getTypeEvenement() === $this) {
+                $evenement->setTypeEvenement(null);
             }
         }
 

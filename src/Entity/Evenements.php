@@ -28,9 +28,9 @@ class Evenements
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $commentaire = null;
 
-    #[ORM\ManyToOne(inversedBy: 'typeevenements')]
+    #[ORM\ManyToOne(inversedBy: 'evenements')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?TypeEvenement $evenement = null;
+    private ?TypeEvenement $typeEvenement = null;
 
     #[ORM\ManyToMany(targetEntity: Participants::class, mappedBy: 'evenement')]
     private Collection $participants;
@@ -97,14 +97,14 @@ class Evenements
         return $this;
     }
 
-    public function getEvenement(): ?TypeEvenement
+    public function getTypeEvenement(): ?TypeEvenement
     {
-        return $this->evenement;
+        return $this->typeEvenement;
     }
 
-    public function setEvenement(?TypeEvenement $evenement): static
+    public function setTypeEvenement(?TypeEvenement $typeEvenement): static
     {
-        $this->evenement = $evenement;
+        $this->typeEvenement = $typeEvenement;
 
         return $this;
     }
