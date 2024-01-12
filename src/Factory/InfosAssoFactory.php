@@ -47,12 +47,13 @@ final class InfosAssoFactory extends ModelFactory
     protected function getDefaults(): array
     {
         $unNom = 'Scylla - Arts De La Scène';
+       
         return [
             'description' => self::faker()->text(),
-            'mail' => self::faker()->text(200),
+            'mail' => self::faker()->email(),
             'nom' => $unNom,
-            'siege' => self::faker()->text(255),
-            'telephone' => self::faker()->text(20),
+            'siege' => self::faker()->address(),
+            'telephone' => self::faker()->phoneNumber(),
         ];
     }
 

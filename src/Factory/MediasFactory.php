@@ -66,7 +66,7 @@ final class MediasFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(Medias $medias): void {})
+            ->afterInstantiate(function(Medias $medias): void {})
         ;
     }
 

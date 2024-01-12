@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\MediasRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MediasRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: MediasRepository::class)]
 class Medias
@@ -24,11 +26,11 @@ class Medias
     private ?int $taille = null;
 
     #[ORM\ManyToOne(inversedBy: 'medias')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Cours $cours = null;
 
     #[ORM\ManyToOne(inversedBy: 'medias')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Evenements $evenement = null;
 
     #[ORM\Column(length: 100)]
@@ -36,6 +38,8 @@ class Medias
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateCreation = null;
+
+ 
 
     public function getId(): ?int
     {
@@ -125,4 +129,6 @@ class Medias
 
         return $this;
     }
+
+    
 }

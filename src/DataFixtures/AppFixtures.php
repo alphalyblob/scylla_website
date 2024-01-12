@@ -35,9 +35,9 @@ class AppFixtures extends Fixture
         // AdherentFactory::createMany(10);
         // InfosAdherentFactory::createMany(10);
         // InfosAssoFactory::createOne();
-        // MediasFactory::createMany(12);
+        // MediasFactory::createMany(2);
         // MembresEquipeFactory::createMany(4);
-        SeancesFactory::createMany(50);
+        // SeancesFactory::createMany(50);
         // TarifsFactory::createMany(6);
         // ParticipantsCoursFactory::createMany(8);
         // ParticipantsEvenementsFactory::createMany(10);

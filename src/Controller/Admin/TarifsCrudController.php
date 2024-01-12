@@ -16,14 +16,14 @@ class TarifsCrudController extends AbstractCrudController
         return Tarifs::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('formule'),
+            TextField::new('prix'),
         ];
     }
-    */
+    
 }
