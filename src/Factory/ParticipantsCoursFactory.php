@@ -75,7 +75,7 @@ final class ParticipantsCoursFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(ParticipantsCours $participantsCours): void {})
+            ->afterInstantiate(function(ParticipantsCours $participantsCours): void {})
         ;
     }
 

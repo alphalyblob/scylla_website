@@ -82,7 +82,7 @@ final class MembresEquipeFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(MembresEquipe $membresEquipe): void {})
+            ->afterInstantiate(function(MembresEquipe $membresEquipe): void {})
         ;
     }
 

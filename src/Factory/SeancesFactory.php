@@ -47,10 +47,12 @@ final class SeancesFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $uneDateDebut = self::faker()->dateTimeBetween('2023-01-01 18:00:00', '2024-01-12 23:00:00');
+        $uneDateFin = self::faker()->dateTimeInInterval($uneDateDebut, '+2 hours 30 minutes');
         return [
             'cours' => CoursFactory::random(),
-            'dateDebut' => self::faker()->dateTime(),
-            'dateFin' => self::faker()->dateTime(),
+            'dateDebut' => $uneDateDebut,
+            'dateFin' => $uneDateFin,
             'infos' => self::faker()->text(),
         ];
     }
@@ -61,7 +63,7 @@ final class SeancesFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(Seances $seances): void {})
+            ->afterInstantiate(function(Seances $seances): void {})
         ;
     }
 

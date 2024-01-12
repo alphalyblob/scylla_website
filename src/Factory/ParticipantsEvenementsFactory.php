@@ -7,6 +7,7 @@ use App\Factory\AdherentFactory;
 use App\Factory\EvenementsFactory;
 use Zenstruck\Foundry\ModelFactory;
 use App\Entity\ParticipantsEvenements;
+use App\Repository\AdherentRepository;
 use Zenstruck\Foundry\RepositoryProxy;
 use App\Repository\ParticipantsEvenementsRepository;
 
@@ -52,13 +53,14 @@ final class ParticipantsEvenementsFactory extends ModelFactory
 
         // Vérifier si l'adhérent est déjà associé à un ParticipantsEvenements
         $existingParticipantsEvenements = ParticipantsEvenementsFactory::repository()->findOneBy(['adherent' => $adherent]);
-
+        
        
 
-        // Si l'adhérent est déjà associé à une ParticipantsEvenements, en choisir un autre
+        // // Si l'adhérent est déjà associé à une ParticipantsEvenements, en choisir un autre
         while ($existingParticipantsEvenements) {
             $adherent = AdherentFactory::randomOrCreate();
             $existingParticipantsEvenements = ParticipantsEvenementsFactory::repository()->findOneBy(['adherent' => $adherent]);
+   
         }
         unset($existingParticipantsEvenements);
 
@@ -67,7 +69,9 @@ final class ParticipantsEvenementsFactory extends ModelFactory
             'adherent' => $adherent,
             'evenement' => EvenementsFactory::randomSet(mt_rand(1, 6)), // Utiliser randomSet avec une plage de 1 à 6
             
+            
         ];
+        unset($adherent);
     }
 
     /**
@@ -75,9 +79,7 @@ final class ParticipantsEvenementsFactory extends ModelFactory
      */
     protected function initialize(): self
     {
-        return $this
-            // ->afterInstantiate(function(ParticipantsEvenements $participantsEvenements): void {})
-        ;
+        return $this->afterInstantiate(function(ParticipantsEvenements $participantsEvenements): void {});
     }
 
     protected static function getClass(): string

@@ -87,7 +87,7 @@ final class InfosAdherentFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(InfosAdherent $infosAdherent): void {})
+            ->afterInstantiate(function(InfosAdherent $infosAdherent): void {})
         ;
     }
 

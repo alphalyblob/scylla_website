@@ -16,14 +16,17 @@ class InfosAssoCrudController extends AbstractCrudController
         return InfosAsso::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('nom'),
+            TextField::new('description'),
+            TextField::new('telephone'),
+            TextField::new('mail'),
+            TextField::new('siege'),
         ];
     }
-    */
+    
 }
