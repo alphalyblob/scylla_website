@@ -44,8 +44,8 @@ class Cours
     #[ORM\OneToMany(mappedBy: 'cours', targetEntity: Seances::class, orphanRemoval: true)]
     private Collection $seances;
 
-    #[ORM\ManyToMany(targetEntity: Participants::class, mappedBy: 'cours')]
-    private Collection $participants;
+    #[ORM\ManyToMany(targetEntity: ParticipantsCours::class, mappedBy: 'cours')]
+    private Collection $participantsCours;
 
     #[ORM\OneToMany(mappedBy: 'cours', targetEntity: Medias::class, orphanRemoval: true)]
     private Collection $medias;
@@ -53,7 +53,7 @@ class Cours
     public function __construct()
     {
         $this->seances = new ArrayCollection();
-        $this->participants = new ArrayCollection();
+        $this->participantsCours = new ArrayCollection();
         $this->medias = new ArrayCollection();
     }
 
@@ -189,27 +189,27 @@ class Cours
     }
 
     /**
-     * @return Collection<int, Participants>
+     * @return Collection<int, ParticipantCours>
      */
-    public function getParticipants(): Collection
+    public function getParticipantsCours(): Collection
     {
-        return $this->participants;
+        return $this->participantsCours;
     }
 
-    public function addParticipant(Participants $participant): static
+    public function addParticipantCours(ParticipantsCours $participantCours): static
     {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
-            $participant->addCour($this);
+        if (!$this->participantsCours->contains($participantCours)) {
+            $this->participantsCours->add($participantCours);
+            $participantCours->addCour($this);
         }
 
         return $this;
     }
 
-    public function removeParticipant(Participants $participant): static
+    public function removeParticipantCours(ParticipantsCours $participantCours): static
     {
-        if ($this->participants->removeElement($participant)) {
-            $participant->removeCour($this);
+        if ($this->participantsCours->removeElement($participantCours)) {
+            $participantCours->removeCour($this);
         }
 
         return $this;

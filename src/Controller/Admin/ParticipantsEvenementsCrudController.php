@@ -2,20 +2,20 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Medias;
+use App\Entity\ParticipantsEvenements;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class MediasCrudController extends AbstractCrudController
+class ParticipantsEvenementsCrudController extends AbstractCrudController
 {
     use Trait\ReadDetailTrait;
     public static function getEntityFqcn(): string
     {
-        return Medias::class;
+        return ParticipantsEvenements::class;
     }
 
     
@@ -23,19 +23,8 @@ class MediasCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            TextField::new('titre'),
-            TextEditorField::new('chemin'),
-            TextEditorField::new('mediaFormat'),
-            TextEditorField::new('taille'),
-            ImageField::new('chemin'),
-            
-            
-    
-
-
-            
-
-
+            AssociationField::new('adherent'),
+            CollectionField::new('evenement'),
         ];
     }
     

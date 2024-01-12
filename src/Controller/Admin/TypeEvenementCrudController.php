@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class TypeEvenementCrudController extends AbstractCrudController
 {
+    use Trait\ReadDetailTrait;
     public static function getEntityFqcn(): string
     {
         return TypeEvenement::class;

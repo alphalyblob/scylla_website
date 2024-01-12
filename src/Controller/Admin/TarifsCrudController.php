@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class TarifsCrudController extends AbstractCrudController
 {
+    use Trait\ReadDetailTrait;
     public static function getEntityFqcn(): string
     {
         return Tarifs::class;

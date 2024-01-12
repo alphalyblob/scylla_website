@@ -32,16 +32,17 @@ class Evenements
     #[ORM\JoinColumn(nullable: false)]
     private ?TypeEvenement $typeEvenement = null;
 
-    #[ORM\ManyToMany(targetEntity: Participants::class, mappedBy: 'evenement')]
-    private Collection $participants;
 
     #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: Medias::class, orphanRemoval: true)]
     private Collection $medias;
 
+    #[ORM\ManyToMany(targetEntity: ParticipantsEvenements::class, mappedBy: 'evenement')]
+    private Collection $participantsEvenements;
+
     public function __construct()
     {
-        $this->participants = new ArrayCollection();
         $this->medias = new ArrayCollection();
+        $this->participantsEvenements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,33 +111,6 @@ class Evenements
     }
 
     /**
-     * @return Collection<int, Participants>
-     */
-    public function getParticipants(): Collection
-    {
-        return $this->participants;
-    }
-
-    public function addParticipant(Participants $participant): static
-    {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
-            $participant->addEvenement($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParticipant(Participants $participant): static
-    {
-        if ($this->participants->removeElement($participant)) {
-            $participant->removeEvenement($this);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Medias>
      */
     public function getMedias(): Collection
@@ -161,6 +135,33 @@ class Evenements
             if ($media->getEvenement() === $this) {
                 $media->setEvenement(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ParticipantsEvenements>
+     */
+    public function getParticipantsEvenements(): Collection
+    {
+        return $this->participantsEvenements;
+    }
+
+    public function addParticipantsEvenement(ParticipantsEvenements $participantsEvenement): static
+    {
+        if (!$this->participantsEvenements->contains($participantsEvenement)) {
+            $this->participantsEvenements->add($participantsEvenement);
+            $participantsEvenement->addEvenement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipantsEvenement(ParticipantsEvenements $participantsEvenement): static
+    {
+        if ($this->participantsEvenements->removeElement($participantsEvenement)) {
+            $participantsEvenement->removeEvenement($this);
         }
 
         return $this;

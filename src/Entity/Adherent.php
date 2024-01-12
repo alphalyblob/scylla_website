@@ -32,15 +32,19 @@ class Adherent implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'adherent', cascade: ['persist', 'remove'])]
     private ?InfosAdherent $infosAdherent = null;
 
-    #[ORM\OneToMany(mappedBy: 'adherent', targetEntity: Participants::class, orphanRemoval: true)]
-    private Collection $participants;
+    #[ORM\OneToMany(mappedBy: 'adherent', targetEntity: ParticipantsCours::class, orphanRemoval: true)]
+    private Collection $participantsCours;
 
     #[ORM\OneToOne(mappedBy: 'adherent', cascade: ['persist', 'remove'])]
     private ?MembresEquipe $membresequipe = null;
 
+    #[ORM\OneToMany(mappedBy: 'adherent', targetEntity: ParticipantsEvenements::class, orphanRemoval: true)]
+    private Collection $participantsEvenements;
+
     public function __construct()
     {
-        $this->participants = new ArrayCollection();
+        $this->participantsCours = new ArrayCollection();
+        $this->participantsEvenements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,29 +135,29 @@ class Adherent implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Participants>
+     * @return Collection<int, ParticipantsCours>
      */
-    public function getParticipants(): Collection
+    public function getParticipantsCours(): Collection
     {
-        return $this->participants;
+        return $this->participantsCours;
     }
 
-    public function addParticipant(Participants $participant): static
+    public function addParticipantsCours(ParticipantsCours $participantCours): static
     {
-        if (!$this->participants->contains($participant)) {
-            $this->participants->add($participant);
-            $participant->setAdherent($this);
+        if (!$this->participantsCours->contains($participantCours)) {
+            $this->participantsCours->add($participantCours);
+            $participantCours->setAdherent($this);
         }
 
         return $this;
     }
 
-    public function removeParticipant(Participants $participant): static
+    public function removeParticipantsCours(ParticipantsCours $participantCours): static
     {
-        if ($this->participants->removeElement($participant)) {
+        if ($this->participantsCours->removeElement($participantCours)) {
             // set the owning side to null (unless already changed)
-            if ($participant->getAdherent() === $this) {
-                $participant->setAdherent(null);
+            if ($participantCours->getAdherent() === $this) {
+                $participantCours->setAdherent(null);
             }
         }
 
@@ -173,6 +177,36 @@ class Adherent implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->membresequipe = $membresequipe;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ParticipantsEvenements>
+     */
+    public function getParticipantsEvenements(): Collection
+    {
+        return $this->participantsEvenements;
+    }
+
+    public function addParticipantsEvenement(ParticipantsEvenements $participantsEvenement): static
+    {
+        if (!$this->participantsEvenements->contains($participantsEvenement)) {
+            $this->participantsEvenements->add($participantsEvenement);
+            $participantsEvenement->setAdherent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipantsEvenement(ParticipantsEvenements $participantsEvenement): static
+    {
+        if ($this->participantsEvenements->removeElement($participantsEvenement)) {
+            // set the owning side to null (unless already changed)
+            if ($participantsEvenement->getAdherent() === $this) {
+                $participantsEvenement->setAdherent(null);
+            }
+        }
 
         return $this;
     }

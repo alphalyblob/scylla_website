@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MediasRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MediasRepository::class)]
@@ -29,6 +30,12 @@ class Medias
     #[ORM\ManyToOne(inversedBy: 'medias')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Evenements $evenement = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $mediaFormat = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $dateCreation = null;
 
     public function getId(): ?int
     {
@@ -91,6 +98,30 @@ class Medias
     public function setEvenement(?Evenements $evenement): static
     {
         $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    public function getMediaFormat(): ?string
+    {
+        return $this->mediaFormat;
+    }
+
+    public function setMediaFormat(string $mediaFormat): static
+    {
+        $this->mediaFormat = $mediaFormat;
+
+        return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->dateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $dateCreation): static
+    {
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }
