@@ -1,31 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Scylla - Connexion{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<div class="container bg-scylla">
+	<form class="color-white" method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+		{% if app.user %}
+			<div class="mb-3">
+				Bienvenue
+				{{ app.user.userIdentifier }}, vous êtes connecté(e)
+				<button>
+					<a href="{{ path('app_logout') }}">Déconnexion</a>
+				</button>
+			</div>
+		{% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+        <h1 class="login-title font-oswald">Connectez-vous</h1>
+        <hr class="login-hr" />
+        <div class="field-box">
+            <label class="font-ysabeau big-font" for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-field mail-field font-oswald" autocomplete="email" required autofocus>
+            <label class="font-ysabeau big-font" for="inputPassword">Mot de Passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control form-field mdp-field font-oswald" autocomplete="current-password" required>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button class="go-btn color-white font-oswald" type="submit">
+                    SE CONNECTER
+            </button>
+       </div>
+
+	</form>
+</div>
+
 {% endblock %}

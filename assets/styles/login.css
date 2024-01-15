@@ -1,0 +1,78 @@
+/* LOGIN */
+.login-title{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.form-field{
+    margin: 0.5rem 0;
+    padding: 1rem 0.5rem;
+    width: 20rem;
+    background-color: inherit;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.mail-field {
+    border-bottom: 1px solid white;
+    transition: all 200ms;
+  }
+  
+  .mail-field:hover {
+    background-color: white;
+    border: none;
+    border-radius: 0.5rem;
+    color: black;
+  }
+  
+  .mdp-field {
+    border-bottom: 1px solid white;
+    transition: all 200ms;
+  }
+  
+  .mdp-field:hover {
+    background-color: white;
+    border: none;
+    border-radius: 0.5rem;
+    color: black;
+  }
+
+.field-box{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-btn{
+    height: 6rem;
+    width: 14rem;
+    margin-top: 3rem;
+    background-color: #0032B4;
+    border-radius: 25px;
+    border: none;
+    font-size: 2rem;
+    transition: all 400ms;
+    box-shadow: 0 0 10px  #0033b46b, 0 0 10px #0032B4;
+}
+
+.go-btn:hover{
+    border: 2px solid white;
+    background-color: #0033b4bb;
+    box-shadow: none;
+}
+
+.login-hr{
+    margin-top: 1.5rem;
+    border-color: white;
+    margin-bottom: 1.5rem;
+
+}
+
+
+
+/* FIN LOGIN */
