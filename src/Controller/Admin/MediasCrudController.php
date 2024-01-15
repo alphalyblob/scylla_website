@@ -25,7 +25,6 @@ class MediasCrudController extends AbstractCrudController
         return [
             IdField::new('id'),
             TextField::new('titre'),
-            TextEditorField::new('chemin'),
             TextEditorField::new('mediaFormat'),
             TextEditorField::new('taille'),
             ImageField::new('chemin'),

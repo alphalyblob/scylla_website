@@ -79,4 +79,9 @@ class Seances
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return 'Seance du '.$this->dateDebut->format('d-m-Y').' à '.$this->dateDebut->format('H:i');
+    }
 }

@@ -70,4 +70,9 @@ class ParticipantsCours
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getAdherent()->getInfosAdherent();
+    }
 }

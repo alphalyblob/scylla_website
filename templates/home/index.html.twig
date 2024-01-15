@@ -3,12 +3,72 @@
 {% block title %}Scylla - Arts De La Scène{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container bg-scylla">
+        <img class="image-bg container-size" src="/img/20230624-200623-06132-Thomas-Brunet.jpg">
 
-<div class="example-wrapper">
-    
-</div>
+        <div class="block-brand-title">
+            
+            <h1 class="color-white font-oswald marge-0 big-brand-font">SCYLLA</h1>
+            <h4 class="color-white font-ysabeau marge-0 medium-brand-font font-thin">Arts De La Scène</h4>
+        </div>
+
+        <div class="block-menu">
+            <nav class="navbar">
+                <ul class="ls-n">
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link big-font" href="">ACCUEIL</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link big-font" href="#">A PROPOS</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link big-font" href="#">ATELIERS</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link big-font" href="#">EVENEMENTS</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link big-font" href="#">GALLERIE</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link big-font" href="#">CALENDRIER</a>
+                    </li>
+                    <hr class="menu-hr"/>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+    <footer class="footer-container">
+            <div class="footer-div-1">
+                <div class="footer-div-2">
+                    <a href="#" class="footer-logo-brand">
+                        <img src="img/sc-logo-blanc-transparent.png" class="footer-img" alt="Scylla Logo" />
+                        <span class="footer-span-a font-ysabeau">Scylla - Arts De La Scène</span>
+                    </a>
+                    <ul class="footer-navlink">
+                        <li>
+                            <a href="#" class="footer-navlink-a font-ysabeau">À propos</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-navlink-a font-ysabeau">Politique de confidentialité</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-navlink-a font-ysabeau">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-navlink-a font-ysabeau">Contactez-nous</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="footer-hr" />
+                <span class="footer-copyright font-ysabeau">© 2024 - <a href="https://flowbite.com/">Scylla - Arts De La Scène</a> - Tous Droits Réservés</span>
+            </div>
+    </footer>
+   
 {% endblock %}
