@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Adherent;
+use App\Entity\InfosAdherent;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -39,6 +40,13 @@ class AdherentRepository extends ServiceEntityRepository implements PasswordUpgr
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
     }
+
+
+    // //ajout pagination kpn
+    // public function findForPagination(?InfosAdherent )
+    // {
+
+    // }
 
 //    /**
 //     * @return Adherent[] Returns an array of Adherent objects

@@ -2,14 +2,12 @@
 
 html,
 body {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     overscroll-behavior: none;
 }
 
-body {
-    margin-bottom: 200px;
-}
+
 
 .bg-scylla {
     background: linear-gradient(#000000 35%, #002177 85%, #0032B4 100%);
@@ -18,8 +16,9 @@ body {
 
 .container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     z-index: 100;
+    
 }
 
 .container-center{
@@ -29,9 +28,6 @@ body {
     align-self: center;
     width: 100%;
     height: 100vh;
-    z-index: 100;
-
-
 }
 
 .home{
@@ -42,7 +38,7 @@ body {
         "a a b"
         "c c b"
         "d d b";
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 
@@ -51,7 +47,7 @@ body {
     height: 100%;
     object-fit: cover;
     position: absolute;
-    z-index: 200;
+    /* z-index: 200; */
     border-right: 1px solid white;
 }
 

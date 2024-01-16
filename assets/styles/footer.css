@@ -3,9 +3,9 @@
     background-color: #001b60;
     width: 100%;
     height: 200px;
-    position: fixed;
+    position: bottom;
     bottom: 0;
-    z-index: -100;
+    
 }
 
 .footer-div-1 {
@@ -88,9 +88,8 @@
 }
 
 .footer-hr {
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     border-color: white;
-    margin-top: 4rem;
 }
 
 .footer-container.dark>.footer-hr {
