@@ -11,5 +11,6 @@ import './styles/login.css';
 import './styles/footer.css';
 import './styles/mediaqueries.css';
 import './styles/reset.css';
+import './styles/tables.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')

@@ -22,6 +22,18 @@ body {
     z-index: 100;
 }
 
+.container-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+
+
+}
+
 .home{
     margin-right: auto;
     margin-left: auto;
@@ -41,6 +53,16 @@ body {
     position: absolute;
     z-index: 200;
     border-right: 1px solid white;
+}
+
+.flex-sp-around{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.txt-a{
+    text-align: center;
 }
 
 /* TITRE */

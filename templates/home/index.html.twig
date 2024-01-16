@@ -31,23 +31,33 @@
                         <a class="td-n color-white font-oswald sc-link big-font" href="#">GALLERIE</a>
                     </li>
                     {% if is_granted('ROLE_GESTION') %}
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">MON CALENDRIER</a>
-                    </li>
                     <hr class="menu-hr"/>
                     <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">MON PROFIL</a>
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
                     </li>
                     <li class="sc-li">
                         <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('admin') }}">ADMINISTRATION</a>
                     </li>
-                    {% elseif app.user%}
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">MON CALENDRIER</a>
-                    </li>
+                    {% elseif is_granted('ROLE_MEMBRE') %}
                     <hr class="menu-hr"/>
                     <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">MON PROFIL</a>
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+                    </li>
+                    
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="#">SEANCES</a>
+                    </li>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="#">PARTICIPANTS</a>
+                    </li>
+                    
+                    {% elseif app.user%}
+                    <hr class="menu-hr"/>
+                    <li class="sc-li">
+                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
                     </li>
                     {% else %}
                     <hr class="menu-hr"/>

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherent{% endblock %}
+
+{% block body %}
+    <h1>Adherent</h1>
+
+    <table class="sc-table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ adherent.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ adherent.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ adherent.roles ? adherent.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ adherent.password }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    {% if is_granted('ROLE_MEMBRE') %}
+    <a href="{{ path('app_adherent_index') }}">back to list</a>
+    {% endif %}
+
+    <a href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">edit</a>
+
+    {{ include('adherent/_delete_form.html.twig') }}
+{% endblock %}

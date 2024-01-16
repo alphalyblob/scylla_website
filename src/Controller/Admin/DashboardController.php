@@ -37,7 +37,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Scylla Website');
+            ->setTitle('Scylla Admin');
     }
 
     public function configureMenuItems(): iterable
@@ -58,6 +58,8 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkToCrud('Équipe', 'fas fa-users-between-lines', MembresEquipe::class);
         yield MenuItem::linkToCrud('Infos Scylla', 'fas fa-building', InfosAsso::class);
+
+        yield MenuItem::linkToRoute('Accueil Scylla', 'fas fa-home', 'app_home');
 
     }
 }

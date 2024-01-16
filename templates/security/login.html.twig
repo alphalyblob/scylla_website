@@ -30,6 +30,12 @@
             <input type="password" name="password" id="inputPassword" class="form-control form-field mdp-field font-oswald" autocomplete="current-password" required>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			<div class="checkbox mb-3">
+				<label for="_remember_me">
+					<input type="checkbox" name="_remember_me">
+					<h6 class="color-white font-oswald">Se souvenir de moi</h2>Se souvenir de moi
+				</label>
+			</div>
 
             <button class="go-btn color-white font-oswald" type="submit">
                     SE CONNECTER

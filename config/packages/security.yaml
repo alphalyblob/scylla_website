@@ -21,6 +21,7 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
+            
 
             remember_me:
                 secret: '%kernel.secret%'
@@ -39,6 +40,10 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_GESTION }
         # - { path: ^/profile, roles: ROLE_USER }
+    
+    role_hierarchy:
+        ROLE_GESTION:       [ROLE_MEMBRE, ROLE_USER]
+        ROLE_MEMBRE:        ROLE_USER
 
 when@test:
     security:
