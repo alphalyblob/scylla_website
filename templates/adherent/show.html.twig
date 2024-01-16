@@ -1,37 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Adherent{% endblock %}
+{% block title %}Scylla - Mon Profil{% endblock %}
 
-{% block body %}
-    <h1>Adherent</h1>
+{% block contenu %}
 
-    <table class="sc-table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ adherent.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ adherent.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ adherent.roles ? adherent.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ adherent.password }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<div class="container-center bg-scylla color-white grid-profile">
 
-    
-    {% if is_granted('ROLE_MEMBRE') %}
-    <a href="{{ path('app_adherent_index') }}">back to list</a>
-    {% endif %}
 
-    <a href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">edit</a>
 
-    {{ include('adherent/_delete_form.html.twig') }}
+        <div class="frame-box area-a">
+        
+		    <h1 class="font-oswald">Bienvenue</h1>
+            <h1 class="font-ysabeau">{{ adherent.infosAdherent.prenom }} {{ adherent.infosAdherent.nom }}</h1>
+        </div>
+
+
+		<table class="sc-profile-table font-oswald big-font area-c">
+			<tbody>
+				<tr>
+					<th>Email</th>
+					<td>{{ adherent.email }}</td>
+				</tr>
+				<tr>
+					<th>Adresse</th>
+					<td>{{ adherent.infosAdherent.adresse }}</td>
+				</tr>
+                <tr>
+					<th>Telephone</th>
+					<td>{{ adherent.infosAdherent.telephone }}</td>
+                    
+				</tr>
+			
+			</tbody>
+		</table>
+
+        
+        <ul class="ul-inline area-d">
+            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon profil</a></li>
+		{% if is_granted('ROLE_MEMBRE') %}
+            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_index') }}">Liste des Adherents</a></li>
+		{% endif %}
+        </ul>
+
+        <div class="calendrier area-b">
+        <ul>
+        
+        {% for participantsCours in adherent.participantsCours %}
+            {% for cours in participantsCours.cours %}
+                <li>
+                    <h1>{{ cours.label }}</h1>
+                    {% for seance in cours.seances %}
+                        <h2>{{ seance.id }}</h2>
+                        <p>Date de début : {{ seance.dateDebut|date('d-m-Y H:i') }}</p>
+                        <p>Date de fin : {{ seance.dateFin|date('d-m-Y H:i') }}</p>
+                        <p>Infos : {{ seance.infos }}</p>
+                    {% endfor %}
+                </li>
+                <br>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+        </div>
+
+		{# {{ include('adherent/_delete_form.html.twig') }} #}
+	</div>
 {% endblock %}
+

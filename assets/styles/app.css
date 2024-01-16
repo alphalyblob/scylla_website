@@ -7,6 +7,9 @@ body {
     overscroll-behavior: none;
 }
 
+body{
+    margin:0;
+}
 
 
 .bg-scylla {
@@ -18,6 +21,8 @@ body {
     width: 100%;
     min-height: 100vh;
     z-index: 100;
+    margin:0;
+    border-bottom: 1px solid white;
     
 }
 
@@ -27,7 +32,9 @@ body {
     justify-content: space-around;
     align-self: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    margin:0;
+    border-bottom: 1px solid white;
 }
 
 .home{
@@ -38,7 +45,7 @@ body {
         "a a b"
         "c c b"
         "d d b";
-    /* z-index: 100; */
+    
 }
 
 
@@ -152,6 +159,13 @@ body {
     text-decoration: none;
 }
 
+.link-hov-u{
+    text-decoration: none;
+}
+
+.link-hov-u:hover{
+    text-decoration: underline;
+}
 
 .sc-link {
     position: relative;
@@ -186,4 +200,12 @@ body {
     /* Affiche les éléments <li> en tant que blocs */
     margin-bottom: 40px;
     /* Espace entre chaque élément <li> */
+}
+
+.mg-left-1{
+    margin-left:1rem;
+}
+
+.pad-0{
+    padding: 0px;
 }
