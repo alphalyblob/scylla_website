@@ -44,23 +44,22 @@
         </ul>
 
         <div class="calendrier area-b">
-        <ul>
-        
-        {% for participantsCours in adherent.participantsCours %}
-            {% for cours in participantsCours.cours %}
-                <li>
-                    <h1>{{ cours.label }}</h1>
-                    {% for seance in cours.seances %}
-                        <h2>{{ seance.id }}</h2>
-                        <p>Date de début : {{ seance.dateDebut|date('d-m-Y H:i') }}</p>
-                        <p>Date de fin : {{ seance.dateFin|date('d-m-Y H:i') }}</p>
-                        <p>Infos : {{ seance.infos }}</p>
+            <ul>
+            
+                {% for participantsCours in adherent.participantsCours %}
+                    {% for cours in participantsCours.cours %}
+                        <li class="ls-n">
+                            <h6>--{{ cours.label }}--</h6>
+                            {% for seance in cours.seances %}
+                                <h6>-{{ seance.id }}-</h6>
+                                <h6>Date de début : {{ seance.dateDebut|date('d-m-Y H:i') }}</h6>
+                                <h6>Date de fin : {{ seance.dateFin|date('d-m-Y H:i') }}</h6>
+                                <h6>Infos : {{ seance.infos }}</h6>
+                            {% endfor %}
+                        </li>
                     {% endfor %}
-                </li>
-                <br>
-            {% endfor %}
-        {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
         </div>
 
 		{# {{ include('adherent/_delete_form.html.twig') }} #}

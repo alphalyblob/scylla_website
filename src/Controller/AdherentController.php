@@ -40,6 +40,8 @@ class AdherentController extends AbstractController
     }
 
 
+
+
     #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_adherent_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Adherent $adherent, EntityManagerInterface $entityManager): Response
@@ -66,6 +68,8 @@ class AdherentController extends AbstractController
             'form' => $form,
         ]);
     }
+
+
 
     
     #[IsGranted('ROLE_USER')]

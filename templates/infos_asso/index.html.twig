@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scylla - À Propos{% endblock %}
+
+{% block body %}
+
+    <div class="container bg-scylla color-white">
+        <h1 class="big-font font-oswald">A propos de Scylla</h1>
+
+        <table class="table medium-font">
+            <thead class="font-oswald">
+                <tr>
+                    
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Telephone</th>
+                    <th>Mail</th>
+                    <th>Siege</th>
+                    
+                </tr>
+            </thead>
+            <tbody class="font-ysabeau">
+            {% for infos_asso in infos_assos %}
+                <tr>
+                    
+                    <td>{{ infos_asso.nom }}</td>
+                    <td>{{ infos_asso.description }}</td>
+                    <td>{{ infos_asso.telephone }}</td>
+                    <td>{{ infos_asso.mail }}</td>
+                    <td>{{ infos_asso.siege }}</td>
+                
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Informations à venir...</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+   
+{% endblock %}
