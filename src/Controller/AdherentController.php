@@ -58,6 +58,11 @@ class AdherentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($this->isGranted('ROLE_USER')) {
+                $form->remove('roles');
+            }
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('app_adherent_index', [], Response::HTTP_SEE_OTHER);

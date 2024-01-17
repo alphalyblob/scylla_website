@@ -14,5 +14,6 @@ import './styles/mediaqueries.css';
 import './styles/tables.css';
 import './styles/profile.css';
 import './styles/asso.css';
+import './styles/dropdown.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')

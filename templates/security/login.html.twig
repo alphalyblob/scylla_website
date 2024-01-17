@@ -32,8 +32,8 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			<div class="checkbox mb-3">
 				<label for="_remember_me">
-					<input type="checkbox" name="_remember_me">
-					<h6 class="color-white font-oswald">Se souvenir de moi</h6>
+					<input class="color-white font-oswald" type="checkbox" name="_remember_me">Se souvenir de moi
+					
 				</label>
 			</div>
 
@@ -43,6 +43,7 @@
        </div>
 
 	</form>
+	<a href="{{ path('app_forgot_password_request') }}" class="color-white font-oswald"> Mot de passe oublié </h4>
 </div>
 
 {% endblock %}

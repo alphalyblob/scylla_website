@@ -1,77 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scylla - Arts De La Scène{% endblock %}
+{% block title %}Scylla - Arts De La Scène
+{% endblock %}
 
 {% block contenu %}
-    <div class="container home bg-scylla">
-        <img class="image-bg container-size" src="/img/20230624-200623-06132-Thomas-Brunet.jpg">
+	<div class="container home bg-scylla">
+		<img class="image-bg container-size" src="/img/20230624-200623-06132-Thomas-Brunet.jpg">
 
-        <div class="block-brand-title">
-            
-            <h1 class="color-white font-oswald marge-0 big-brand-font">SCYLLA</h1>
-            <h4 class="color-white font-ysabeau marge-0 medium-brand-font font-thin">Arts De La Scène</h4>
-        </div>
+		<div class="block-brand-title">
 
-        <div class="block-menu">
-            <nav class="sc-nav">
-                <ul class="ls-n sc-ul">
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_home') }}">ACCUEIL</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_infos_asso_index') }}">A PROPOS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_ateliers_index') }}">ATELIERS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_evenements_index') }}">EVENEMENTS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_medias_index') }}">GALLERIE</a>
-                    </li>
-                    {% if is_granted('ROLE_GESTION') %}
-                    <hr class="menu-hr"/>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('admin') }}">ADMINISTRATION</a>
-                    </li>
-                    {% elseif is_granted('ROLE_MEMBRE') %}
-                    <hr class="menu-hr"/>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-                    </li>
-                    
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="#">SEANCES</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="#">PARTICIPANTS</a>
-                    </li>
-                    
-                    {% elseif app.user%}
-                    <hr class="menu-hr"/>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-                    </li>
-                    {% else %}
-                    <hr class="menu-hr"/>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
-                    </li>
-                    {% endif %}
+			<h1 class="color-white font-oswald marge-0 big-brand-font">SCYLLA</h1>
+			<h4 class="color-white font-ysabeau marge-0 medium-brand-font font-thin">Arts De La Scène</h4>
+		</div>
 
+		<div class="block-menu">
+			<nav class="sc-nav">
+				<ul class="ls-n sc-ul">
+					<li class="sc-li">
+						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_home') }}">ACCUEIL</a>
+					</li>
+					<li class="sc-li">
+						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_infos_asso_index') }}">A PROPOS</a>
+					</li>
+					<li class="sc-li">
+						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_ateliers_index') }}">ATELIERS</a>
+					</li>
+					<li class="sc-li">
+						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_evenements_index') }}">EVENEMENTS</a>
+					</li>
+					<li class="sc-li">
+						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_medias_index') }}">GALLERIE</a>
+					</li>
+					<hr class="menu-hr"/>
 
+					
 
-                </ul>
-            </nav>
-        </div>
+					<!-- Dropdown menu -->
+					<div class="dropdown">
+						<button class="dropdown-toggle color-white font-ysabeau">MENU</button>
+						<div class="dropdown-menu">
+                        {% if is_granted('ROLE_GESTION') %}
+							<a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+							<a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('admin') }}">ADMINISTRATION</a>
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+                        {% elseif is_granted('ROLE_MEMBRE') %}
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+                        {% elseif app.user%}
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>			                 
+						{% else %}
+                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
+                        {% endif %}			                   
+						</div>
+					</div>
+				</ul>
+			</nav>
+		</div>
 
-    </div>
-   
+	</div>
+
 {% endblock %}
+
