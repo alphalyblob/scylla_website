@@ -2,68 +2,44 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\MediasRepository;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
-/**
- * @ORM\Entity(repositoryClass=MediasRepository::class)
- * @Vich\Uploadable
- */
+#[ORM\Entity(repositoryClass: MediasRepository::class)]
 class Medias
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
     private ?int $id = null;
 
-    /**
-     * @ORM\Column(length=70)
-     */
+    #[ORM\Column(length: 70)]
     private ?string $titre = null;
 
-    /**
-     * @ORM\Column(length=255)
-     */
+    #[ORM\Column(length: 255)]
     private ?string $chemin = null;
 
-    /**
-     * @ORM\Column
-     */
+    #[ORM\Column]
     private ?int $taille = null;
 
-    /**
-     * @ORM\ManyToOne(inversedBy="medias")
-     * @ORM\JoinColumn(nullable=true)
-     */
+    #[ORM\ManyToOne(inversedBy: 'medias')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Cours $cours = null;
 
-    /**
-     * @ORM\ManyToOne(inversedBy="medias")
-     * @ORM\JoinColumn(nullable=true)
-     */
+    #[ORM\ManyToOne(inversedBy: 'medias')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Evenements $evenement = null;
 
-    /**
-     * @ORM\Column(length=100)
-     */
+    #[ORM\Column(length: 100)]
     private ?string $mediaFormat = null;
 
-    /**
-     * @Vich\UploadableField(mapping="media_uploads", fileNameProperty="chemin")
-     * @var File|null
-     */
-    private ?File $imageFile = null;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateCreation = null;
+
+ 
 
     public function getId(): ?int
     {
@@ -153,20 +129,6 @@ class Medias
 
         return $this;
     }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    public function setImageFile(?File $imageFile): static
-    {
-        $this->imageFile = $imageFile;
-
-        if ($imageFile) {
-            $this->dateCreation = new \DateTime('now');
-        }
-
-        return $this;
-    }
+   
+    
 }
