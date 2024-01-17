@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Medias{% endblock %}
+
+{% block body %}
+
+<div class="container bg-scylla color-white font-oswald">
+    <h1>Medias</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ media.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ media.titre }}</td>
+            </tr>
+            <tr>
+                <th>Chemin</th>
+                <td>{{ media.chemin }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ media.taille }}</td>
+            </tr>
+            <tr>
+                <th>MediaFormat</th>
+                <td>{{ media.mediaFormat }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ media.dateCreation ? media.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_medias_index') }}">back to list</a>
+
+    
+</div>
+{% endblock %}

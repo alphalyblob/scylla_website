@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scylla Medias{% endblock %}
+
+{% block body %}
+<div class="container bg-scylla color-white font-oswald">
+    <h1>Medias</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Titre</th>
+                <th>DateCreation</th>
+                 
+                <th>Chemin</th>
+                
+            
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for media in medias %}
+            <tr>
+                
+                <td>{{ media.titre }}</td>
+                <td>{{ media.dateCreation ? media.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td><img src="{{ media.chemin }}" alt="media scylla"></td>
+                <td>
+                    <a href="{{ path('app_medias_show', {'id': media.id}) }}">Détail</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

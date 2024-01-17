@@ -28,7 +28,7 @@
                         <a class="td-n color-white font-oswald sc-link big-font" href="#">EVENEMENTS</a>
                     </li>
                     <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">GALLERIE</a>
+                        <a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_medias_index') }}">GALLERIE</a>
                     </li>
                     {% if is_granted('ROLE_GESTION') %}
                     <hr class="menu-hr"/>
