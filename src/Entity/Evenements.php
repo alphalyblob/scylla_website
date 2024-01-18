@@ -32,16 +32,17 @@ class Evenements
     #[ORM\JoinColumn(nullable: false)]
     private ?TypeEvenement $typeEvenement = null;
 
-
- 
-
     #[ORM\ManyToMany(targetEntity: ParticipantsEvenements::class, mappedBy: 'evenement')]
     private Collection $participantsEvenements;
+
+    #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: ImagesEvenements::class, cascade: ['persist'], orphanRemoval: true)]
+    private Collection $imagesEvenements;
 
     public function __construct()
     {
         
         $this->participantsEvenements = new ArrayCollection();
+        $this->imagesEvenements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -133,6 +134,36 @@ class Evenements
     {
         if ($this->participantsEvenements->removeElement($participantsEvenement)) {
             $participantsEvenement->removeEvenement($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ImagesEvenements>
+     */
+    public function getImagesEvenements(): Collection
+    {
+        return $this->imagesEvenements;
+    }
+
+    public function addImagesEvenement(ImagesEvenements $imagesEvenement): static
+    {
+        if (!$this->imagesEvenements->contains($imagesEvenement)) {
+            $this->imagesEvenements->add($imagesEvenement);
+            $imagesEvenement->setEvenement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImagesEvenement(ImagesEvenements $imagesEvenement): static
+    {
+        if ($this->imagesEvenements->removeElement($imagesEvenement)) {
+            // set the owning side to null (unless already changed)
+            if ($imagesEvenement->getEvenement() === $this) {
+                $imagesEvenement->setEvenement(null);
+            }
         }
 
         return $this;

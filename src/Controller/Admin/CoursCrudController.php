@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Cours;
 
 
-use App\Form\Type\ImagesCoursType;
+use App\Form\ImagesCoursType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
