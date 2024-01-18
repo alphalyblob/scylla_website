@@ -47,11 +47,15 @@ class Cours
     #[ORM\ManyToMany(targetEntity: ParticipantsCours::class, mappedBy: 'cours')]
     private Collection $participantsCours;
 
+    #[ORM\OneToMany(mappedBy: 'cours', targetEntity: ImagesCours::class, cascade: ['persist'], orphanRemoval: true)]
+    private Collection $imagesCours;
+
 
     public function __construct()
     {
         $this->seances = new ArrayCollection();
         $this->participantsCours = new ArrayCollection();
+        $this->imagesCours = new ArrayCollection();
         
     }
 
@@ -217,5 +221,35 @@ class Cours
     public function __toString(): string
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection<int, ImagesCours>
+     */
+    public function getImagesCours(): Collection
+    {
+        return $this->imagesCours;
+    }
+
+    public function addImagesCour(ImagesCours $imagesCour): static
+    {
+        if (!$this->imagesCours->contains($imagesCour)) {
+            $this->imagesCours->add($imagesCour);
+            $imagesCour->setCours($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImagesCour(ImagesCours $imagesCour): static
+    {
+        if ($this->imagesCours->removeElement($imagesCour)) {
+            // set the owning side to null (unless already changed)
+            if ($imagesCour->getCours() === $this) {
+                $imagesCour->setCours(null);
+            }
+        }
+
+        return $this;
     }
 }

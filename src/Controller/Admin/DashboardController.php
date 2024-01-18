@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Cours;
-// use App\Entity\Medias;
 use App\Entity\Tarifs;
 use App\Entity\Seances;
 use App\Entity\Adherent;
@@ -18,6 +17,7 @@ use App\Entity\ParticipantsEvenements;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Admin\AdherentCrudController;
+use App\Entity\ImagesCours;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -47,7 +47,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Cours', 'fas fa-graduation-cap', Cours::class);
         yield MenuItem::linkToCrud('Séances', 'fas fa-calendar-days', Seances::class);
         yield MenuItem::linkToCrud('Évenèments', 'fas fa-ticket', Evenements::class);
-        // yield MenuItem::linkToCrud('Médias', 'fas fa-photo-film', Medias::class);
+        yield MenuItem::linkToCrud('Images - Cours', 'fas fa-photo-film', ImagesCours::class);
         yield MenuItem::linkToCrud('Tarifs', 'fas fa-euro-sign', Tarifs::class);
 
 
