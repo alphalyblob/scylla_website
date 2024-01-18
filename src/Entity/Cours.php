@@ -47,14 +47,12 @@ class Cours
     #[ORM\ManyToMany(targetEntity: ParticipantsCours::class, mappedBy: 'cours')]
     private Collection $participantsCours;
 
-    #[ORM\OneToMany(mappedBy: 'cours', targetEntity: Medias::class, orphanRemoval: true)]
-    private Collection $medias;
 
     public function __construct()
     {
         $this->seances = new ArrayCollection();
         $this->participantsCours = new ArrayCollection();
-        $this->medias = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -215,35 +213,6 @@ class Cours
         return $this;
     }
 
-    /**
-     * @return Collection<int, Medias>
-     */
-    public function getMedias(): Collection
-    {
-        return $this->medias;
-    }
-
-    public function addMedia(Medias $media): static
-    {
-        if (!$this->medias->contains($media)) {
-            $this->medias->add($media);
-            $media->setCours($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMedia(Medias $media): static
-    {
-        if ($this->medias->removeElement($media)) {
-            // set the owning side to null (unless already changed)
-            if ($media->getCours() === $this) {
-                $media->setCours(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function __toString(): string
     {

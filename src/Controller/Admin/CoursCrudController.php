@@ -3,7 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Cours;
-use DateTime;
+
+
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -26,27 +27,27 @@ class CoursCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('label'),
-            TextField::new('descriptif'),
-            TextField::new('niveau'),
-            TextField::new('horaire'),
-            TextField::new('lieu'),
-            DateField::new('debutSaison'),
-            DateField::new('finSaison'),
-            AssociationField::new('atelier'),
+            yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('label'),
+            yield TextField::new('descriptif'),
+            yield TextField::new('niveau'),
+            yield TextField::new('horaire'),
+            yield TextField::new('lieu'),
+            yield DateField::new('debutSaison'),
+            yield DateField::new('finSaison'),
+            yield AssociationField::new('atelier'),
 
-            AssociationField::new('seances')
+            yield AssociationField::new('seances')
                 ->onlyOnIndex(),
-            ArrayField::new('seances')
+            yield ArrayField::new('seances')
                 ->onlyOnDetail(),
 
-            AssociationField::new('participantsCours')
+            yield AssociationField::new('participantsCours')
                 ->onlyOnIndex(),
-            ArrayField::new('participantsCours')
+            yield ArrayField::new('participantsCours')
                 ->onlyOnDetail(),
 
-            CollectionField::new('medias'),
+            
         ];
     }
     
