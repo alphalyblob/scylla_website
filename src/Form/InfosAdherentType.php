@@ -2,11 +2,12 @@
 
 namespace App\Form;
 
+
 use App\Entity\Adherent;
 use App\Entity\InfosAdherent;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class InfosAdherentType extends AbstractType
@@ -22,7 +23,7 @@ class InfosAdherentType extends AbstractType
             ->add('pratique')
             ->add('adherent', EntityType::class, [
                 'class' => Adherent::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
         ;
     }

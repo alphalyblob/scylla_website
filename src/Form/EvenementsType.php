@@ -21,12 +21,12 @@ class EvenementsType extends AbstractType
             ->add('commentaire')
             ->add('typeEvenement', EntityType::class, [
                 'class' => TypeEvenement::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
             ->add('participantsEvenements', EntityType::class, [
                 'class' => ParticipantsEvenements::class,
-'choice_label' => 'id',
-'multiple' => true,
+                'choice_label' => 'id',
+                'multiple' => true,
             ])
         ;
     }

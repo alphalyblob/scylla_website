@@ -3,11 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Adherent;
+use App\Entity\InfosAdherent;
+use App\Form\AdminAdherentType;
+use App\Form\InfosAdherentType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -51,6 +55,7 @@ class AdherentCrudController extends AbstractCrudController
             TextField::new('password')->hideOnForm(),
             ArrayField::new('roles'),
             AssociationField::new('infosAdherent'),
+
         ];
     }
 }

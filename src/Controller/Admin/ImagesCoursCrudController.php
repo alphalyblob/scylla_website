@@ -10,6 +10,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ImagesCoursCrudController extends AbstractCrudController
 {
+    
+    use Trait\ReadOnlyTrait;
+    
     public static function getEntityFqcn(): string
     {
         return ImagesCours::class;
