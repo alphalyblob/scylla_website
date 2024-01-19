@@ -17,6 +17,7 @@ use App\Entity\ParticipantsEvenements;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Admin\AdherentCrudController;
+use App\Entity\ImagesAteliers;
 use App\Entity\ImagesCours;
 use App\Entity\ImagesEvenements;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -50,6 +51,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Évenèments', 'fas fa-ticket', Evenements::class);
         yield MenuItem::linkToCrud('Images - Cours', 'fas fa-photo-film', ImagesCours::class);
         yield MenuItem::linkToCrud('Images - Évènements', 'fas fa-photo-film', ImagesEvenements::class);
+        yield MenuItem::linkToCrud('Images - Ateliers', 'fas fa-photo-film', ImagesAteliers::class);
         yield MenuItem::linkToCrud('Tarifs', 'fas fa-euro-sign', Tarifs::class);
 
 

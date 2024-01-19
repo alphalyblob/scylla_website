@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Controller\Admin\Trait\ReadDetailTrait;
 use App\Entity\Ateliers;
+use App\Form\ImagesAteliersType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -24,13 +25,16 @@ class AteliersCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('label'),
+            yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('label'),
             TextField::new('description'),
-            AssociationField::new('cours')
-                ->onlyOnIndex(),
-            ArrayField::new('cours')
-                ->onlyOnDetail(),
+            yield AssociationField::new('cours')
+                    ->onlyOnIndex(),
+            yield ArrayField::new('cours')
+                    ->onlyOnDetail(),
+            yield CollectionField::new('imagesAteliers')
+                    ->setEntryType(ImagesAteliersType::class),
+            
 
         ];
     }

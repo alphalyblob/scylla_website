@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\ImagesEvenementsRepository;
+use App\Repository\ImagesAteliersRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-#[ORM\Entity(repositoryClass: ImagesEvenementsRepository::class)]
+#[ORM\Entity(repositoryClass: ImagesAteliersRepository::class)]
 #[Vich\Uploadable]
-class ImagesEvenements
+class ImagesAteliers
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,9 +28,9 @@ class ImagesEvenements
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'imagesEvenements')]
+    #[ORM\ManyToOne(inversedBy: 'imagesAteliers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Evenements $evenement = null;
+    private ?Ateliers $atelier = null;
 
     public function getId(): ?int
     {
@@ -57,7 +57,7 @@ class ImagesEvenements
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $nom): static
     {
         $this->nom = $nom;
 
@@ -69,7 +69,7 @@ class ImagesEvenements
         return $this->taille;
     }
 
-    public function setTaille(int $taille): self
+    public function setTaille(int $taille): static
     {
         $this->taille = $taille;
 
@@ -81,22 +81,27 @@ class ImagesEvenements
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    public function getEvenement(): ?Evenements
+    public function getAtelier(): ?Ateliers
     {
-        return $this->evenement;
+        return $this->atelier;
     }
 
-    public function setEvenement(?Evenements $evenement): self
+    public function setAtelier(?Ateliers $atelier): static
     {
-        $this->evenement = $evenement;
+        $this->atelier = $atelier;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
     }
 }

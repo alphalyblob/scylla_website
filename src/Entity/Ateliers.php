@@ -25,9 +25,13 @@ class Ateliers
     #[ORM\OneToMany(mappedBy: 'atelier', targetEntity: Cours::class, orphanRemoval: true)]
     private Collection $cours;
 
+    #[ORM\OneToMany(mappedBy: 'atelier', targetEntity: ImagesAteliers::class, cascade: ['persist'], orphanRemoval: true)]
+    private Collection $imagesAteliers;
+
     public function __construct()
     {
         $this->cours = new ArrayCollection();
+        $this->imagesAteliers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,5 +96,35 @@ class Ateliers
     public function __toString(): string
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection<int, ImagesAteliers>
+     */
+    public function getImagesAteliers(): Collection
+    {
+        return $this->imagesAteliers;
+    }
+
+    public function addImagesAtelier(ImagesAteliers $imagesAtelier): static
+    {
+        if (!$this->imagesAteliers->contains($imagesAtelier)) {
+            $this->imagesAteliers->add($imagesAtelier);
+            $imagesAtelier->setAtelier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImagesAtelier(ImagesAteliers $imagesAtelier): static
+    {
+        if ($this->imagesAteliers->removeElement($imagesAtelier)) {
+            // set the owning side to null (unless already changed)
+            if ($imagesAtelier->getAtelier() === $this) {
+                $imagesAtelier->setAtelier(null);
+            }
+        }
+
+        return $this;
     }
 }
