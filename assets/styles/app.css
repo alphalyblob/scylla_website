@@ -212,3 +212,36 @@ body{
 .pad-0{
     padding: 0px;
 }
+
+.position-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box{
+    border: 1px solid white;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.pad-left{
+    padding-left: 1rem;
+}
+.pad-right{
+    padding-right: 1rem;
+}
+
+.disp-flex-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.marge-left{
+    margin-left: 2rem;
+}
+.marge-right{
+    margin-right: 2rem;
+}
+

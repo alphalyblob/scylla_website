@@ -11,7 +11,11 @@
         <div class="frame-box area-a">
         
 		    <h1 class="font-oswald">Bienvenue</h1>
+            {% if adherent.infosAdherent is null or adherent.infosAdherent.prenom is null %}
+            <h1 class="font-ysabeau">à toi !</h1>
+            {% else %}
             <h1 class="font-ysabeau">{{ adherent.infosAdherent.prenom }} {{ adherent.infosAdherent.nom }}</h1>
+            {% endif %}
             <a class="link-hov-u color-white font-oswald" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
             {# <p>{{ dump(adherent.id) }}</p> #}
         </div>
@@ -19,7 +23,13 @@
 
 		<table class="sc-profile-table font-oswald big-font area-c">
 			<tbody>
+            {% if adherent.infosAdherent is null or adherent.infosAdherent.prenom is null %}
 				<tr>
+					<th>Email</th>
+					<td>{{ adherent.email }}</td>
+				</tr>
+            {% else %}
+                <tr>
 					<th>Email</th>
 					<td>{{ adherent.email }}</td>
 				</tr>
@@ -32,13 +42,14 @@
 					<td>{{ adherent.infosAdherent.telephone }}</td>
                     
 				</tr>
+            {% endif %}
 			
 			</tbody>
 		</table>
 
         
         <ul class="ul-inline area-d">
-            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon profil</a></li>
+            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
 		{% if is_granted('ROLE_MEMBRE') %}
             <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_home') }}">Accueil</a></li>
             <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_index') }}">Liste des Adherents</a></li>

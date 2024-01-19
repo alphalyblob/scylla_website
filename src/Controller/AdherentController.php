@@ -59,9 +59,11 @@ class AdherentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if ($this->isGranted('ROLE_USER')) {
-                $form->remove('roles');
-            }
+            // if ($this->isGranted('ROLE_USER')) {
+            //     $form->remove('roles');
+            // }
+
+            $password = $adherent->getPassword();
             
             $entityManager->flush();
 

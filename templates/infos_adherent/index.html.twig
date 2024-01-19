@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InfosAdherent index{% endblock %}
+
+{% block body %}
+    <h1>InfosAdherent index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>DateNaissance</th>
+                <th>Pratique</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_adherent in infos_adherents %}
+            <tr>
+                <td>{{ infos_adherent.id }}</td>
+                <td>{{ infos_adherent.nom }}</td>
+                <td>{{ infos_adherent.prenom }}</td>
+                <td>{{ infos_adherent.telephone }}</td>
+                <td>{{ infos_adherent.adresse }}</td>
+                <td>{{ infos_adherent.dateNaissance ? infos_adherent.dateNaissance|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ infos_adherent.pratique }}</td>
+                <td>
+                    <a href="{{ path('app_infos_adherent_show', {'id': infos_adherent.id}) }}">show</a>
+                    <a href="{{ path('app_infos_adherent_edit', {'id': infos_adherent.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_infos_adherent_new') }}">Create new</a>
+{% endblock %}
