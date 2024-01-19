@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[Route('/adherent')]
@@ -44,7 +45,7 @@ class AdherentController extends AbstractController
 
     #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_adherent_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Adherent $adherent, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Adherent $adherent, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
 
         // L'utilisateur ne peut éditer que son propre compte
@@ -59,11 +60,8 @@ class AdherentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // if ($this->isGranted('ROLE_USER')) {
-            //     $form->remove('roles');
-            // }
-
-            $password = $adherent->getPassword();
+            
+            $adherent->setPassword($passwordHasher->hashPassword($adherent, $adherent->getPassword()));
             
             $entityManager->flush();
 
@@ -75,6 +73,8 @@ class AdherentController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    
 
 
 

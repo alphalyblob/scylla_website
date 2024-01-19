@@ -19,6 +19,7 @@ class ImagesEvenementsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            AssociationField::new('evenement')
             IdField::new('id'),
             TextField::new('title'),
             TextEditorField::new('description'),

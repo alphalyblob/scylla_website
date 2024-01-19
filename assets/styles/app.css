@@ -235,6 +235,7 @@ body{
 
 .disp-flex-around{
     display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -245,3 +246,12 @@ body{
     margin-right: 2rem;
 }
 
+.color-red{
+    color: red;
+}
+
+.danger-message{
+    color: red;
+    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+}

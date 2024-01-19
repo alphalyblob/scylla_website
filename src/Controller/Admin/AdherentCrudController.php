@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -45,7 +46,7 @@ class AdherentCrudController extends AbstractCrudController
         
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('email'),
+            EmailField::new('email'),
             $passwordnew,
             TextField::new('password')->hideOnForm(),
             ArrayField::new('roles'),

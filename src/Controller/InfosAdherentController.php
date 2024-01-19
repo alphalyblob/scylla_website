@@ -22,25 +22,25 @@ class InfosAdherentController extends AbstractController
         ]);
     }
 
-    // #[Route('/new', name: 'app_infos_adherent_new', methods: ['GET', 'POST'])]
-    // public function new(Request $request, EntityManagerInterface $entityManager): Response
-    // {
-    //     $infosAdherent = new InfosAdherent();
-    //     $form = $this->createForm(InfosAdherentType::class, $infosAdherent);
-    //     $form->handleRequest($request);
+    #[Route('/new', name: 'app_infos_adherent_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $infosAdherent = new InfosAdherent();
+        $form = $this->createForm(InfosAdherentType::class, $infosAdherent);
+        $form->handleRequest($request);
 
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $entityManager->persist($infosAdherent);
-    //         $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($infosAdherent);
+            $entityManager->flush();
 
-    //         return $this->redirectToRoute('app_infos_adherent_index', [], Response::HTTP_SEE_OTHER);
-    //     }
+            return $this->redirectToRoute('app_infos_adherent_index', [], Response::HTTP_SEE_OTHER);
+        }
 
-    //     return $this->render('infos_adherent/new.html.twig', [
-    //         'infos_adherent' => $infosAdherent,
-    //         'form' => $form,
-    //     ]);
-    // }
+        return $this->render('infos_adherent/new.html.twig', [
+            'infos_adherent' => $infosAdherent,
+            'form' => $form,
+        ]);
+    }
 
     #[Route('/{id}', name: 'app_infos_adherent_show', methods: ['GET'])]
     public function show(InfosAdherent $infosAdherent): Response

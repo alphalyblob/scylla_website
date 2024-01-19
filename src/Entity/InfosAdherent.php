@@ -46,7 +46,7 @@ class InfosAdherent
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
 
@@ -58,7 +58,7 @@ class InfosAdherent
         return $this->prenom;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
 
@@ -70,7 +70,7 @@ class InfosAdherent
         return $this->telephone;
     }
 
-    public function setTelephone(string $telephone): static
+    public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
 
@@ -82,7 +82,7 @@ class InfosAdherent
         return $this->adresse;
     }
 
-    public function setAdresse(string $adresse): static
+    public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
 
@@ -94,7 +94,7 @@ class InfosAdherent
         return $this->dateNaissance;
     }
 
-    public function setDateNaissance(\DateTimeInterface $dateNaissance): static
+    public function setDateNaissance(\DateTimeInterface $dateNaissance): self
     {
         $this->dateNaissance = $dateNaissance;
 
@@ -106,7 +106,7 @@ class InfosAdherent
         return $this->pratique;
     }
 
-    public function setPratique(string $pratique): static
+    public function setPratique(string $pratique): self
     {
         $this->pratique = $pratique;
 
@@ -118,7 +118,7 @@ class InfosAdherent
         return $this->adherent;
     }
 
-    public function setAdherent(Adherent $adherent): static
+    public function setAdherent(Adherent $adherent): self
     {
         $this->adherent = $adherent;
 
