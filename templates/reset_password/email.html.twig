@@ -1,9 +1,10 @@
-<h1>Hi!</h1>
+<div class="container bg-scylla disp-flex disp-flex-around color-white font-oswald">
+    <h1>Hey !</h1>
 
-<p>To reset your password, please visit the following link</p>
+    <p>Pour réinitialiser ton mot de passe, clique sur le lien ci-dessous</p>
 
-<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+    <a class="go-btn color-white font-oswald" href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
 
-<p>This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+    <p>Ce lien va expirer dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
 
-<p>Cheers!</p>
+</div>

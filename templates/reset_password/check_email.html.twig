@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}Scylla - Mail de réinitialisation envoyé{% endblock %}
 
 {% block body %}
+
+<div class="container bg-scylla disp-flex disp-flex-around color-white font-oswald">
     <p>
-        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        Si le mail communiqué est relié à un compte, tu viens de recevoir un mail avec le lien de réinitialisation de mot de passe ! 
+        Le lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
     </p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    <p>Si tu ne reçois pas le mail, vérie les spams ou clique sur <a class="go-btn color-white" href="{{ path('app_forgot_password_request') }}">Renvoyer le mail</a>.</p>
+</div>
 {% endblock %}

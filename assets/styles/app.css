@@ -255,3 +255,12 @@ body{
     font-size: 2rem;
     font-family: 'Oswald', sans-serif;
 }
+
+.pad-2{
+    padding: 2rem;
+}
+
+.width-height{
+    width: 6rem;
+    height: 4rem;
+}
