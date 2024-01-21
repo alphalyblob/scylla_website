@@ -32,7 +32,7 @@ class Evenements
     #[ORM\JoinColumn(nullable: false)]
     private ?TypeEvenement $typeEvenement = null;
 
-    #[ORM\ManyToMany(targetEntity: ParticipantsEvenements::class, mappedBy: 'evenement')]
+    #[ORM\ManyToMany(targetEntity: ParticipantsEvenements::class, mappedBy: 'evenement', cascade: ['persist'])]
     private Collection $participantsEvenements;
 
     #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: ImagesEvenements::class, cascade: ['persist'], orphanRemoval: true)]
@@ -167,5 +167,10 @@ class Evenements
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
     }
 }

@@ -4,11 +4,11 @@
 
 {% block body %}
 
-<div class="container bg-scylla disp-flex disp-flex-around color-white font-oswald">
-    <p>
+<div class="container bg-scylla disp-flex-around-col color-white font-oswald">
+    <h2 class="disp-flex-around marge-right marge-left">
         Si le mail communiqué est relié à un compte, tu viens de recevoir un mail avec le lien de réinitialisation de mot de passe ! 
-        Le lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Si tu ne reçois pas le mail, vérie les spams ou clique sur <a class="go-btn color-white" href="{{ path('app_forgot_password_request') }}">Renvoyer le mail</a>.</p>
+        Link expires in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </h2>
+    <h3>Si tu ne reçois pas le mail, vérifie dans les spams ou clique sur <a class="go-btn color-white pad-right pad-left" href="{{ path('app_forgot_password_request') }}">Renvoyer le mail</a>.</h3>
 </div>
 {% endblock %}

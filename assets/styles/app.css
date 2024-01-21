@@ -264,3 +264,10 @@ body{
     width: 6rem;
     height: 4rem;
 }
+
+.disp-flex-around-col{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}

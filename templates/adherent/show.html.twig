@@ -49,9 +49,9 @@
 
         
         <ul class="ul-inline area-d">
+            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_home') }}">Accueil</a></li>
             <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
 		{% if is_granted('ROLE_MEMBRE') %}
-            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_home') }}">Accueil</a></li>
             <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_index') }}">Liste des Adherents</a></li>
 		{% endif %}
         </ul>
