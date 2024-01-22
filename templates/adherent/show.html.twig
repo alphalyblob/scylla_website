@@ -21,7 +21,7 @@
         </div>
 
 
-		<table class="sc-profile-table font-oswald big-font area-c">
+		<table class="sc-profile-table font-oswald big-font area-b">
 			<tbody>
             {% if adherent.infosAdherent is null or adherent.infosAdherent.prenom is null %}
 				<tr>
@@ -48,7 +48,7 @@
 		</table>
 
         
-        <ul class="ul-inline area-d">
+        <ul class="ul-inline area-c">
             <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_home') }}">Accueil</a></li>
             <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
 		{% if is_granted('ROLE_MEMBRE') %}
@@ -56,24 +56,61 @@
 		{% endif %}
         </ul>
 
-        {# <div class="calendrier area-b">
-            <ul>
-            
-                {% for participantsCours in adherent.participantsCours %}
-                    {% for cours in participantsCours.cours %}
-                        <li class="ls-n">
-                            <h6>--{{ cours.label }}--</h6>
+        <div class="area-d">
+            <div class="carousel">
+                <div class="carousel__scene">
+                    <ol class="carousel__list">
+                    {% set totalSeances = 0 %}
+                    {% for participantsCours in adherent.participantsCours %}
+                        {% for cours in participantsCours.cours %}
                             {% for seance in cours.seances %}
-                                <h6>-{{ seance.id }}-</h6>
-                                <h6>Date de début : {{ seance.dateDebut|date('d-m-Y H:i') }}</h6>
-                                <h6>Date de fin : {{ seance.dateFin|date('d-m-Y H:i') }}</h6>
-                                <h6>Infos : {{ seance.infos }}</h6>
-                            {% endfor %}
+                        <li class="carousel__cell">
+                            <span class="song__title">{{ seance.cours.label }}</span>
+                            <span class="song__year">Date et heure : {{ seance.dateDebut|date('d-m-Y H:i') }}</span>
+                            <span class="song__artist">Infos : {{ seance.infos }}</span>
                         </li>
+                                {% set totalSeances = totalSeances + 1 %}
+                            {% endfor %}
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            </ul>
-        </div> #}
+                    
+                    </ol>
+                </div>
+                <div class="carousel__controls">
+                    <button class="previous-button">&#x2B06;</button>
+                    <button class="next-button">&#x2B07;</button>
+                </div>
+            </div>
+
+            <div id="totalSeancesCount" style="display: none;">{{ totalSeances }}</div>
+        </div>
+
+        <div class="area-e">
+            {# <div class="carousel">
+                <div class="carousel__scene">
+                    <ol class="carousel__list">
+                    {% set totalEvents = 0 %}
+                    {% for participantsEvenements in adherent.participantsEvenements %}
+                        {% for event in participantsEvenements.evenement %}
+                        <li class="carousel__cell">
+                            <span class="song__title">{{ event.titre }}</span>
+                            <span class="song__year">Date et heure : {{ event.date|date('d-m-Y H:i') }}</span>
+                            <span class="song__artist">Infos : {{ event.commentaire }}</span>
+                        </li>
+                            {% set totalEvents = totalEvents + 1 %}
+                        {% endfor %}
+                    {% endfor %}
+                    </ol>
+                </div>
+                <div class="carousel__controls">
+                    <button class="previous-button">&#x2B06;</button>
+                    <button class="next-button">&#x2B07;</button>
+                </div>
+            </div> #}
+            <div id="totalEventsCount" style="display: none;">{{ totalEvents }}</div>
+        </div>
+
+        
 
 		{# {{ include('adherent/_delete_form.html.twig') }} #}
 	</div>

@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -53,17 +54,13 @@ class AdherentCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             EmailField::new('email'),
             $passwordnew,
-            TextField::new('password')->hideOnForm(),
+            TextEditorField::new('password')->hideOnForm(),
             ArrayField::new('roles'),
             AssociationField::new('infosAdherent'),
-            AssociationField::new('participantsCours', 'Participation')->setFormTypeOptions([
-                'by_reference' => false, // Make sure to set by_reference to false
-            ])->addCssClass('select2'), // You can use select2 for a better UI
-
-
-
-            // CollectionField::new('participantsCours'),
-            // CollectionField::new('participantsEvenements'),
+            
+            
+            ArrayField::new('participantsCours')->hideOnForm(),
+            ArrayField::new('participantsEvenements')->hideOnForm(),
 
         ];
     }

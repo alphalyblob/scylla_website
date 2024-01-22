@@ -28,11 +28,7 @@ class ParticipantsEvenementsCrudController extends AbstractCrudController
         return [
             yield IdField::new('id')->hideOnForm(),
             yield AssociationField::new('adherent'),
-            yield CollectionField::new('evenement'),
-            yield ArrayField::new('evenement')
-                    ->onlyOnDetail(),
-                    
-            
+            yield AssociationField::new('evenement')->autocomplete(),
         ];
     }
     

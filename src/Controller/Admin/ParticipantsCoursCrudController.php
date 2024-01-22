@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Cours;
 use App\Entity\ParticipantsCours;
-use App\Form\ParticipantsCoursType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -26,8 +25,7 @@ class ParticipantsCoursCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             AssociationField::new('adherent'),
-            CollectionField::new('cours'),
-            
+            AssociationField::new('cours')->autocomplete(),
         ];
     }
     
