@@ -23,7 +23,7 @@ class TypeEvenementCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('label'),
-            CollectionField::new('evenements'),
+            CollectionField::new('evenements')->hideOnForm(),
         ];
     }
     

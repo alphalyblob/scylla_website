@@ -1,0 +1,32 @@
+{% block header %}
+
+	<nav class="header-nav bg-header disp-flex-al-cent">
+
+		<div class="flex-start">
+			<a class="td-n color-white disp-flex-around" href="{{ path('app_home') }}">
+                <img src="{{ asset('img/sc-logo-blanc-transparent.png') }}" class="header-img" alt="Scylla Logo"/>
+                <h1 class="color-white font-oswald">SCYLLA - Arts De La Scène</h1>
+            </a>
+		</div>
+
+		<div class="flex-end">
+			{% if is_granted('ROLE_GESTION') %}
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('admin') }}">ADMINISTRATION</a>
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+			{% elseif is_granted('ROLE_MEMBRE') %}
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+			{% elseif app.user%}
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+			{% else %}
+				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
+			{% endif %}
+		</div>
+
+	</nav>
+
+{% endblock %}
+

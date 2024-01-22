@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scylla - Galerie
+{% endblock %}
+
+{% block body %}
+
+<div class="container-center bg-scylla color-white font-oswald">
+	
+	<div class="galerie-disp">
+	
+	    {% for ev_image in ev_images %}
+	        <img src="{{ asset('images/evenements/' ~ ev_image.nom) }}" class="up-img"> 
+	    {% else %}
+	        <h1 colspan="7">Photos à venir...</h1>
+	    {% endfor %}
+	
+	    {% for co_image in co_images %}
+	        <img src="{{ asset('images/cours/' ~ co_image.nom) }}" class="up-img"> 
+	    {% else %}
+	        <h1 colspan="7">Photos à venir...</h1>
+	    {% endfor %}
+	
+	
+	</div>
+	
+	
+	
+
+
+	{# <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+		<div class="grid gap-4">
+         {% for ev_image in ev_images %}
+			<div>
+				<img class="h-auto max-w-full rounded-lg img-tail" src="{{ asset('images/evenements/' ~ ev_image.nom) }}" alt="Photo Evenement">
+			</div>
+		</div>
+        {% else %}
+        <h1 colspan="7">Photos à venir...</h1>
+        {% endfor %}
+        {% for co_image in co_images %}
+            <div>
+				<img class="h-auto max-w-full rounded-lg img-tail" src="{{ asset('images/cours/' ~ co_image.nom) }}" alt="Photo Cours">
+			</div>
+        {% else %}
+	        <h1 colspan="7">Photos à venir...</h1>
+	    {% endfor %}
+	</div> #}
+</div>
+
+
+{% endblock %}

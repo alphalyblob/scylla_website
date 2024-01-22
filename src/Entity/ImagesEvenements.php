@@ -19,7 +19,7 @@ class ImagesEvenements
     #[Vich\UploadableField(mapping: 'evenements', fileNameProperty: 'nom', size: 'taille')]
     private ?File $file = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable:true)]
     private ?string $nom = null;
 
     #[ORM\Column]

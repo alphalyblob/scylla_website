@@ -233,6 +233,14 @@
         text-decoration: underline;
     }
     /*  FIN FOOTER TAB */
+
+
+
+    /* HEADER TAB */
+    .disp-flex-al-cent{
+        padding: 0.2rem;
+    }
+     /* FIN HEADER TAB */
 }
 
 /* Ecrans de téléphones */
@@ -449,6 +457,13 @@
     }
     /*  FIN FOOTER MOBILE */
    
+
+    /* HEADER MOBILE */
+    .disp-flex-al-cent{
+        padding: 0.2rem;
+    
+    }
+     /* FIN HEADER MOBILE */
 
 
    

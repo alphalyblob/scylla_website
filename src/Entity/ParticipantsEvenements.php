@@ -67,4 +67,10 @@ class ParticipantsEvenements
 
         return $this;
     }
+    public function __toString(): string
+    {
+        $event = $this->getEvenement()->first();
+
+        return $event ? $event->getTitre() : '';
+    }
 }

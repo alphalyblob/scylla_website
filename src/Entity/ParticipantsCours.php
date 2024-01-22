@@ -73,6 +73,8 @@ class ParticipantsCours
 
     public function __toString(): string
     {
-        return $this->getAdherent()->getInfosAdherent();
+        $elcours = $this->getCours()->first();
+
+        return $elcours ? $elcours->getLabel() : '';
     }
 }

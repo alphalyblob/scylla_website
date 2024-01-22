@@ -12,6 +12,9 @@
         {% endblock %}
     </head>
     <body>
+    {% block header %}
+        {% include 'navigation/header.html.twig' %}
+    {% endblock %}
         {% block body %}
             {% block contenu %}
             {% endblock %}

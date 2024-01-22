@@ -29,32 +29,9 @@
 						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_evenements_index') }}">EVENEMENTS</a>
 					</li>
 					<li class="sc-li">
-						<a class="td-n color-white font-oswald sc-link big-font" href="#">GALLERIE</a>
+						<a class="td-n color-white font-oswald sc-link big-font" href="{{ path('app_galerie_index') }}">GALERIE</a>
 					</li>
-					<hr class="menu-hr"/>
 
-					
-
-					<!-- Dropdown menu -->
-					<div class="dropdown">
-						<button class="dropdown-toggle color-white font-ysabeau">MENU</button>
-						<div class="dropdown-menu">
-                        {% if is_granted('ROLE_GESTION') %}
-							<a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-							<a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('admin') }}">ADMINISTRATION</a>
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
-                        {% elseif is_granted('ROLE_MEMBRE') %}
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
-                        {% elseif app.user%}
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>			                 
-						{% else %}
-                            <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
-                        {% endif %}			                   
-						</div>
-					</div>
 				</ul>
 			</nav>
 		</div>

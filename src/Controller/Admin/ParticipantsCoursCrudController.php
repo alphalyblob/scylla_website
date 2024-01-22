@@ -2,13 +2,15 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Cours;
 use App\Entity\ParticipantsCours;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use App\Form\ParticipantsCoursType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ParticipantsCoursCrudController extends AbstractCrudController
 {
@@ -25,6 +27,7 @@ class ParticipantsCoursCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             AssociationField::new('adherent'),
             CollectionField::new('cours'),
+            
         ];
     }
     
