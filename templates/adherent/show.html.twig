@@ -56,7 +56,14 @@
 		{% endif %}
         </ul>
 
+        
+        
+
         <div class="area-d">
+            <div class="box-titre marge-top-2">
+                <h3 class="font-oswald color-white big-font">MES SEANCES</h3>
+            </div>
+            
             <div class="carousel">
                 <div class="carousel__scene">
                     <ol class="carousel__list">
@@ -64,10 +71,12 @@
                     {% for participantsCours in adherent.participantsCours %}
                         {% for cours in participantsCours.cours %}
                             {% for seance in cours.seances %}
-                        <li class="carousel__cell">
-                            <span class="seance__label">{{ seance.cours.label }}</span>
-                            <span class="seance__date">Date et heure : {{ seance.dateDebut|date('d-m-Y H:i') }}</span>
+                        <li class="carousel__cell font-ysabeau">
+                            <span class="seance__label upper-text">{{ seance.cours.label }}</span>
+                            <span class="seance__date">{{ seance.dateDebut|format_datetime('full', locale='fr') }}</span>
+                            {% if seance.infos is not null %}
                             <span class="seance__infos">Infos : {{ seance.infos }}</span>
+                            {% endif %}
                         </li>
                                 {% set totalSeances = totalSeances + 1 %}
                             {% endfor %}
@@ -85,29 +94,38 @@
             <div id="totalSeancesCount" style="display: none;">{{ totalSeances }}</div>
         </div>
 
+
+
+
+
         <div class="area-e">
-            {# <div class="carousel">
-                <div class="carousel__scene">
-                    <ol class="carousel__list">
+            <div class="box-titre marge-top-2">
+                <h3 class="font-oswald color-white big-font">MES EVENEMENTS</h3>
+            </div>
+            <div class="carousel2">
+                <div class="carousel__scene2">
+                    <ol class="carousel__list2">
                     {% set totalEvents = 0 %}
                     {% for participantsEvenements in adherent.participantsEvenements %}
                         {% for event in participantsEvenements.evenement %}
-                        <li class="carousel__cell">
-                            <span class="song__title">{{ event.titre }}</span>
-                            <span class="song__year">Date et heure : {{ event.date|date('d-m-Y H:i') }}</span>
-                            <span class="song__artist">Infos : {{ event.commentaire }}</span>
+                        <li class="carousel__cell2 font-ysabeau">
+                            <span class="event_titre upper-text">{{ event.titre }}</span>
+                            <span class="event_date">{{ event.date|format_datetime('full', locale='fr') }}</span>
+                            {% if event.commentaire is not null %}
+                            <span class="event_comm">Infos : {{ event.commentaire }}</span>
+                            {% endif %}
                         </li>
                             {% set totalEvents = totalEvents + 1 %}
                         {% endfor %}
                     {% endfor %}
                     </ol>
                 </div>
-                <div class="carousel__controls">
-                    <button class="previous-button">&#x2B06;</button>
-                    <button class="next-button">&#x2B07;</button>
+                <div class="carousel__controls2">
+                    <button class="previous-button2">&#x2B06;</button>
+                    <button class="next-button2">&#x2B07;</button>
                 </div>
-            </div> #}
-            {# <div id="totalEventsCount" style="display: none;">{{ totalEvents }}</div> #}
+            </div>
+            <div id="totalEventsCount" style="display: none;">{{ totalEvents }}</div>
         </div>
 
         

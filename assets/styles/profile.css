@@ -55,6 +55,9 @@
         "a a a a c c c c"
         "b b b b c c c c"
         "b b b b c c c c"
+        "f f f f f f f f"
+        "f f f f f f f f"
+        "f f f f f f f f"
         "d d d d e e e e"
         "d d d d e e e e";
 }
@@ -79,9 +82,26 @@
     grid-area: e;
 }
 
+.area-f{
+    grid-area: f;
+}
+
 
 .profile-hr{
     margin-top: 0.5rem;
     border-color: white;
 }
 
+.box-titre{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 3rem;
+    background-color: #002177;
+}
+
+.marge-top-2{
+    margin-top: 2rem;
+}

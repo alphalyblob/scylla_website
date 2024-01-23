@@ -279,5 +279,7 @@ body{
     flex-direction: column;
 }
 
-
+.upper-text{
+    text-transform: uppercase;
+}
 

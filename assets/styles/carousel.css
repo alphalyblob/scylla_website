@@ -1,38 +1,8 @@
+/* CAROUSEL SEANCES */
+
 * { box-sizing: border-box; }
 
 
-
-/* a, a:visited, a:active {
-    color: inherit;
-} */
-
-.header {
-    margin: 0.67em 0;
-    color: goldenrod;
-    background-color: #444444DD;
-    border: 3px solid goldenrod;
-    border-radius: 10px;
-    padding: 10px;
-    width: 550px;
-    max-width: 95vw;
-    z-index: 2;
-}
-
-.footer {
-    color: goldenrod;
-    height: 50px;
-    line-height: 50px;
-}
-
-.title {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-.subtitle {
-    font-size: 0.83em;
-    font-weight: bold;
-}
 
 .seance__label, .seance__date, .seance__infos {
     display: block;
@@ -66,6 +36,10 @@
 }
 
 .previous-button, .next-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
     margin: 5px 0;
     padding: 5px;
     width: 50px;
@@ -73,14 +47,14 @@
     font-family: monospace;
     font-weight: bold;
     font-size: 2rem;
-    border: 3px solid goldenrod;
+    border: 3px solid white;
     border-radius: 10px;
-    background-color: #444;
+    background-color: #002177;
 }
 
 .previous-button:focus, .next-button:focus {
     outline: none;
-    box-shadow: 0 0 6px 3px goldenrod;
+    box-shadow: 0 0 6px 3px white;
 }
 
 .carousel__list {
@@ -129,14 +103,15 @@
 }
 
 .carousel__cell.selected {
-    color: goldenrod;
-    border-color: goldenrod;
+    color: white;
+    border-color: 002177;
     border-width: 5px;
+    background-color: #002177;
     /*filter: none;*/
 }
 
 .carousel__cell.selected::before {
-    color: goldenrod;
+    color: white;
 }
 
 .carousel__cell:nth-child(1) { transform: rotateX(  0deg) translateZ(288px); }
@@ -148,3 +123,139 @@
 .carousel__cell:nth-child(7) { transform: rotateX(240deg) translateZ(288px); }
 .carousel__cell:nth-child(8) { transform: rotateX(280deg) translateZ(288px); }
 .carousel__cell:nth-child(9) { transform: rotateX(320deg) translateZ(288px); }
+
+/* FIN CAROUSEL SEANCES */
+
+
+
+
+
+/* CAROUSEL EVENEMENTS */
+
+* { box-sizing: border-box; }
+
+
+
+
+
+.event_titre, .event_date, .event_comm {
+    display: block;
+}
+
+.carousel2 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 130px 0;
+}
+
+.carousel__scene2 {
+    position: relative;
+    width: 510px;
+    height: 460px;
+    max-width: 95vw;
+    padding-top: 150px;
+    perspective: 100px;
+    /*overflow: hidden;*/
+}
+
+.carousel__controls2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    right: 15px;
+}
+
+.previous-button2, .next-button2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 5px 0;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 2rem;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: #002177;
+}
+
+.previous-button2:focus, .next-button2:focus {
+    outline: none;
+    box-shadow: 0 0 6px 3px white;
+}
+
+.carousel__list2 {
+    width: 100%;
+    height: 160px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    transform: translateZ(-288px);
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    list-style: none;
+    counter-reset: list-counter;
+}
+
+.carousel__cell2 {
+    position: absolute;
+    width: 490px;
+    height: 140px;
+    max-width: calc(95vw - 20px);
+    left: 10px;
+    top: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    transition: transform 1s, opacity 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    counter-increment: list-counter;
+    background-color: rgba(128, 128, 128, 0.75);
+    /*filter: blur(2px);*/
+}
+
+.carousel__cell2::before {
+    content: counter(list-counter);
+    color: white;
+    text-shadow: 2px 2px black;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.carousel__cell2.selected {
+    color: white;
+    border-color: 002177;
+    border-width: 5px;
+    background-color: #002177;
+    /*filter: none;*/
+}
+
+.carousel__cell2.selected::before {
+    color: white;
+}
+
+.carousel__cell2:nth-child(1) { transform: rotateX(  0deg) translateZ(288px); }
+.carousel__cell2:nth-child(2) { transform: rotateX( 40deg) translateZ(288px); }
+.carousel__cell2:nth-child(3) { transform: rotateX( 80deg) translateZ(288px); }
+.carousel__cell2:nth-child(4) { transform: rotateX(120deg) translateZ(288px); }
+.carousel__cell2:nth-child(5) { transform: rotateX(160deg) translateZ(288px); }
+.carousel__cell2:nth-child(6) { transform: rotateX(200deg) translateZ(288px); }
+.carousel__cell2:nth-child(7) { transform: rotateX(240deg) translateZ(288px); }
+.carousel__cell2:nth-child(8) { transform: rotateX(280deg) translateZ(288px); }
+.carousel__cell2:nth-child(9) { transform: rotateX(320deg) translateZ(288px); }
+
+/* FIN CAROUSEL EVENEMENTS */
