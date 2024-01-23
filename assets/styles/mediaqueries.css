@@ -3,13 +3,13 @@
 /* Media queries - Responsive */
 
 /* Ecran grand  */
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
     body {
         font-size: 18px;
     }
 
 
-}
+} */
 
 /* Ecrans de très grand */
 @media screen and (min-width: 1200px) {
@@ -96,11 +96,16 @@
 
     .sc-ul{
         padding: 0;
+        margin: 0;
         
     }
 
     .big-font {
         font-size: xx-large;
+    }
+
+    .big-font-xl {
+        font-size: 3rem;
     }
 
     .font-thin {
@@ -241,10 +246,27 @@
         padding: 0.2rem;
     }
      /* FIN HEADER TAB */
+
+     /* LOGIN MOBILE */
+     .login-title{
+        font-size: 4rem;
+        margin: 3rem;
+        text-align: center;
+    }
+
+    .login-hr{
+        display: none;
+    
+    }
+
+    .mdp-a{
+        margin-bottom: 4rem;
+    }
+    /* FIN LOGIN MOBILE */
 }
 
 /* Ecrans de téléphones */
-@media screen and (min-width: 320px) and (max-width: 480px) {
+@media screen and (min-width: 300px) and (max-width: 500px) {
 
     body {
         margin: 0;
@@ -263,7 +285,7 @@
         height: 100%;
         object-fit: cover;
         position: absolute;
-        z-index: 0;
+       
         border-bottom: 1px solid white;
 
     }
@@ -274,9 +296,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0px 0px 0px 0px;
+        padding: 0;
         position: relative;
-        z-index: 1;
+        margin: 0;
+        
     }
 
     /* MENU MOBILE*/
@@ -295,6 +318,7 @@
 
     .sc-ul{
         padding: 0;
+        margin: 0;
         
     }
 
@@ -322,6 +346,10 @@
 
     .big-font {
         font-size: larger;
+    }
+
+    .big-font-xl {
+        font-size: 2rem;
     }
 
     .font-thin {
@@ -463,8 +491,27 @@
         padding: 0.2rem;
     
     }
+
+
      /* FIN HEADER MOBILE */
 
+     
+    /* LOGIN MOBILE */
+     .login-title{
+        font-size: 2rem;
+        margin: 1rem;
+        text-align: center;
+    }
+
+    .login-hr{
+        display: none;
+    
+    }
+
+    .mdp-a{
+        margin-bottom: 4rem;
+    }
+    /* FIN LOGIN MOBILE */
 
    
 }

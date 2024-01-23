@@ -49,10 +49,10 @@
 
         
         <ul class="ul-inline area-c">
-            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_home') }}">Accueil</a></li>
-            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
+            <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
 		{% if is_granted('ROLE_MEMBRE') %}
-            <li><a class="link-hov-u color-white font-oswald" href="{{ path('app_adherent_index') }}">Liste des Adherents</a></li>
+            <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_adherent_index') }}">Liste des Adherents</a></li>
 		{% endif %}
         </ul>
 
@@ -65,9 +65,9 @@
                         {% for cours in participantsCours.cours %}
                             {% for seance in cours.seances %}
                         <li class="carousel__cell">
-                            <span class="song__title">{{ seance.cours.label }}</span>
-                            <span class="song__year">Date et heure : {{ seance.dateDebut|date('d-m-Y H:i') }}</span>
-                            <span class="song__artist">Infos : {{ seance.infos }}</span>
+                            <span class="seance__label">{{ seance.cours.label }}</span>
+                            <span class="seance__date">Date et heure : {{ seance.dateDebut|date('d-m-Y H:i') }}</span>
+                            <span class="seance__infos">Infos : {{ seance.infos }}</span>
                         </li>
                                 {% set totalSeances = totalSeances + 1 %}
                             {% endfor %}

@@ -34,7 +34,7 @@
     font-weight: bold;
 }
 
-.song__title, .song__year, .song__artist {
+.seance__label, .seance__date, .seance__infos {
     display: block;
 }
 
