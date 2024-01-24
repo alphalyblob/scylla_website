@@ -5,17 +5,19 @@
 
 {% block contenu %}
 
+
 	<div class="container bg-scylla center-wrap">
     {% for atelier in ateliers %}
         {% for image in atelier.imagesAteliers %}
-            <div class="card">
-                <img src="{{ asset('images/ateliers/' ~ image.nom) }}" class="img-card"> 
-                
-                <h1 class="font-oswald">{{atelier.label}}</h1>
-                <details class="font-ysabeau">
+            <div class="card-at">
+			 	<div class="illu-at">
+                	<img src="{{ asset('images/ateliers/' ~ image.nom) }}" class="img-card-at"> 
+                </div>
+                <h1 class="font-oswald at-titre">{{atelier.label}}</h1>
+                <details class="font-oswald at-det">
                     <summary class="font-oswald">Détails...</summary>
                         {{atelier.description}}
-                        <a class="font-oswald" href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">COURS</a>
+                        <a class="font-oswald link-ns color-white at-btn" href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">COURS</a>
                 </details>
             </div>
         {% endfor %}

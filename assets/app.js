@@ -18,9 +18,12 @@ import './styles/header.css';
 import './styles/galerie.css';
 import './styles/carousel.css';
 import './styles/evenements.css';
+import './styles/eventdetcar.css';
 
 
 
 import './js/custom.js';
+import './js/carousel.js';
+import './js/eventdetcar.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')

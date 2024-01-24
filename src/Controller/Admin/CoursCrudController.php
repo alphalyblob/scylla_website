@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class CoursCrudController extends AbstractCrudController
 {
@@ -30,7 +31,7 @@ class CoursCrudController extends AbstractCrudController
         return [
             yield IdField::new('id')->hideOnForm(),
             yield TextField::new('label'),
-            yield TextField::new('descriptif'),
+            yield TextareaField::new('descriptif'),
             yield TextField::new('niveau'),
             yield TextField::new('horaire'),
             yield TextField::new('lieu'),

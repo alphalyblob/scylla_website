@@ -1,0 +1,21 @@
+.scroll-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    max-width: 600px;
+    background-color:transparent;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 1rem;
+  }
+  
+.scroll-container img {
+    padding: 20px;
+    border-radius: 2rem;
+    height: 250px;
+    width: auto;
+    
+}

@@ -304,3 +304,10 @@ body{
     background-color: white;
     color:black
 }
+
+.center-wrap{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content:center;
+}

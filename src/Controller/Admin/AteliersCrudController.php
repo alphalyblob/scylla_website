@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -27,15 +28,13 @@ class AteliersCrudController extends AbstractCrudController
         return [
             yield IdField::new('id')->hideOnForm(),
             yield TextField::new('label'),
-            TextField::new('description'),
+            yield TextareaField::new('description'),
             yield AssociationField::new('cours')
                     ->onlyOnIndex(),
             yield ArrayField::new('cours')
                     ->onlyOnDetail(),
             yield CollectionField::new('imagesAteliers')
                     ->setEntryType(ImagesAteliersType::class),
-            
-
         ];
     }
     

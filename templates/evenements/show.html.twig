@@ -1,9 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Evenements{% endblock %}
+{% block title %}Evenements
+{% endblock %}
 
 {% block body %}
-<div class="container bg-scylla color-white font-oswald">
+
+	<div class="container bg-scylla color-white font-oswald">
+
+		<div class="title-detail disp-flex-around">
+
+			<h1 class="big-font-xl upper-text">{{evenement.titre}}</h1>
+
+		</div>
+
+		<div class="disp-flex-around-col pad-2">
+			<p class="big-font">{{evenement.descriptif}}</p>
+		</div>
+		<div class="disp-flex-around-col pad-2">
+			<a class="font-oswald show-btn link-ns color-white" href="{{ path('app_evenements_index') }}">EVENEMENTS</a>
+		</div>
+
+        <div class="disp-flex-around">
+            <div class="scroll-container">
+            {% if evenement.imagesEvenements is not empty %}
+            {% for image in evenement.imagesEvenements %}
+			    <img src="{{ asset('images/evenements/' ~ image.nom) }}" alt="Evenement">
+            {% endfor %}
+            {% else %}
+                <img src="{{ asset('img/sc-logo-blanc-transparent.png') }}" alt="Logo Scylla">
+            {% endif %}
+            
+		    </div>
+        </div>
+
+		
+
+		<div class="disp-flex-around-col pad-2">
+			<ul>
+
+				<li class="ls-n li-ev">
+					<h1 class="big-font">{{evenement.titre}}</h1>
+					<p>{{evenement.descriptif}}</p>
+					<p>Date :
+						{{ evenement.date|format_datetime('long', 'none', locale='fr') }}</p>
+                    {% if evenement.commentaire is not null %}
+					<p>Infos : {{evenement.commentaire}}</p>
+                    {% endif %}
+				</li>
+
+
+			</ul>
+		</div>
+	</div>
+
+
+{% endblock %}
+
+{# <div class="container bg-scylla color-white font-oswald">
     <h1>Evenements</h1>
 
     <table class="table">
@@ -29,8 +82,8 @@
 
     <a href="{{ path('app_evenements_index') }}">Retour à la liste</a>
 
-    {# <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a> #}
+    <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a>
 
     
-</div>
-{% endblock %}
+</div> #}
+

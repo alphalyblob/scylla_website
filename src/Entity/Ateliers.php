@@ -25,7 +25,7 @@ class Ateliers
     #[ORM\OneToMany(mappedBy: 'atelier', targetEntity: Cours::class, orphanRemoval: true)]
     private Collection $cours;
 
-    #[ORM\OneToMany(mappedBy: 'atelier', targetEntity: ImagesAteliers::class, cascade: ['persist'], orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'atelier', targetEntity: ImagesAteliers::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $imagesAteliers;
 
     public function __construct()

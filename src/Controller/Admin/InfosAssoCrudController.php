@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\InfosAsso;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -22,7 +23,7 @@ class InfosAssoCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('nom'),
-            TextField::new('description'),
+            TextareaField::new('description'),
             TextField::new('telephone'),
             TextField::new('mail'),
             TextField::new('siege'),

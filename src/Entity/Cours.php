@@ -47,7 +47,7 @@ class Cours
     #[ORM\ManyToMany(targetEntity: ParticipantsCours::class, mappedBy: 'cours')]
     private Collection $participantsCours;
 
-    #[ORM\OneToMany(mappedBy: 'cours', targetEntity: ImagesCours::class, cascade: ['persist'], orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'cours', targetEntity: ImagesCours::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $imagesCours;
 
 

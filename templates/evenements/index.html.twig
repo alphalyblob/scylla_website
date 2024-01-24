@@ -1,24 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Evenements index{% endblock %}
+{% block title %}Evenements{% endblock %}
 
 {% block body %}
 
 <div class="container bg-scylla center-wrap">
     {% for event in evenements %}
-        {% for image in event.imagesEvenements %}
-            <div class="card-ev bg-scylla">
+            <div class="card-ev">
                 <div class="illu-ev">
-                    <img src="{{ asset('images/evenements/' ~ image.nom) }}" class="img-card-ev"> 
+                    
+                    <div class="ev-card-scroll">
+                    {% if event.imagesEvenements is not empty %}
+                    {% for image in event.imagesEvenements %}
+                        <img src="{{ asset('images/evenements/' ~ image.nom) }}" class="img-card-ev" alt="Evenement">
+                    {% endfor %}
+                    {% else %}
+                        <img src="{{ asset('img/sc-logo-blanc-transparent.png') }}" class="img-card-ev" alt="Scylla Logo">
+                    {% endif %}
+                    </div>
+                    
                 </div>
-                <h1 class="font-oswald">{{event.titre}}</h1>
-                <details class="font-ysabeau">
-                    <summary class="font-oswald">Détails...</summary>
+                <h1 class="font-oswald ev-titre">{{ event.titre }}</h1>
+                <details class="font-oswald ev-det">
+                    <summary class="font-oswald">RÉSUMÉ</summary>
                         {{event.descriptif}}
-                        <a class="font-oswald" href="{{ path('app_evenements_show', {'id' : event.id}) }}">PLUS</a>
+                        <a class="font-oswald link-ns color-white ev-btn" href="{{ path('app_evenements_show', {'id' : event.id}) }}">PLUS</a>
                 </details>
             </div>
-        {% endfor %}
+        
      {% endfor %}
 </div>
 

@@ -35,7 +35,7 @@ class Evenements
     #[ORM\ManyToMany(targetEntity: ParticipantsEvenements::class, mappedBy: 'evenement', cascade: ['persist'])]
     private Collection $participantsEvenements;
 
-    #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: ImagesEvenements::class, cascade: ['persist'], orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'evenement', targetEntity: ImagesEvenements::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $imagesEvenements;
 
     public function __construct()
