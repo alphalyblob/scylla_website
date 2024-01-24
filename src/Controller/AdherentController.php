@@ -11,8 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 #[Route('/adherent')]
 class AdherentController extends AbstractController
@@ -29,10 +30,11 @@ class AdherentController extends AbstractController
 
     #[IsGranted('ROLE_USER')]
     #[Route('/{id}', name: 'app_adherent_show', methods: ['GET'])]
-    public function show(Adherent $adherent): Response
+    public function show(Adherent $adherent, TokenStorageInterface $tokenStorage): Response
     {
-        // L'utilisateur ne peut consulter que son propre compte
-        if ($this->getUser() !== $adherent) {
+        $user = $tokenStorage->getToken()->getUser();
+        // Si l'adherent connecté n'est pas l'adherent visé alors acces refusé
+        if ($user !== $adherent) {
             throw new AccessDeniedException("Vous n'êtes pas autorisé à consulter ce profil.");
         }
         return $this->render('adherent/show.html.twig', [
@@ -45,11 +47,11 @@ class AdherentController extends AbstractController
 
     #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_adherent_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Adherent $adherent, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+    public function edit(Request $request, Adherent $adherent, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher, TokenStorageInterface $tokenStorage): Response
     {
-
-        // L'utilisateur ne peut éditer que son propre compte
-        if ($this->getUser() !== $adherent) {
+        $user = $tokenStorage->getToken()->getUser();
+        // Si l'adherent connecté n'est pas l'adherent visé alors acces refusé
+        if ($user !== $adherent) {
             throw new AccessDeniedException("Vous n'êtes pas autorisé à éditer ce profil.");
         }
         

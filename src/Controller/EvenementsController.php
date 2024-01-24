@@ -22,25 +22,6 @@ class EvenementsController extends AbstractController
         ]);
     }
 
-    // #[Route('/new', name: 'app_evenements_new', methods: ['GET', 'POST'])]
-    // public function new(Request $request, EntityManagerInterface $entityManager): Response
-    // {
-    //     $evenement = new Evenements();
-    //     $form = $this->createForm(EvenementsType::class, $evenement);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $entityManager->persist($evenement);
-    //         $entityManager->flush();
-
-    //         return $this->redirectToRoute('app_evenements_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-
-    //     return $this->render('evenements/new.html.twig', [
-    //         'evenement' => $evenement,
-    //         'form' => $form,
-    //     ]);
-    // }
 
     #[Route('/{id}', name: 'app_evenements_show', methods: ['GET'])]
     public function show(Evenements $evenement): Response
@@ -50,22 +31,5 @@ class EvenementsController extends AbstractController
         ]);
     }
 
-    // #[Route('/{id}/edit', name: 'app_evenements_edit', methods: ['GET', 'POST'])]
-    // public function edit(Request $request, Evenements $evenement, EntityManagerInterface $entityManager): Response
-    // {
-    //     $form = $this->createForm(EvenementsType::class, $evenement);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $entityManager->flush();
-
-    //         return $this->redirectToRoute('app_evenements_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-
-    //     return $this->render('evenements/edit.html.twig', [
-    //         'evenement' => $evenement,
-    //         'form' => $form,
-    //     ]);
-    // }
 
 }
