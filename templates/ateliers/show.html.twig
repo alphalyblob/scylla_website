@@ -3,39 +3,38 @@
 {% block title %}Scylla - Ateliers{% endblock %}
 
 {% block contenu %}
-    <div class="container bg-scylla d-column color-white font-oswald div-flex">
-        <div class="d-col marge-1033"> 
-            <h1 class="font-oswald atelier-title marge-bt">{{atelier.label}}</h1>
-            <ul class="ls-n">
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="">ACCUEIL</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">A PROPOS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">ATELIERS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">EVENEMENTS</a>
-                    </li>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link big-font" href="#">GALLERIE</a>
-                    </li>
-                    <hr class="menu-hr"/>
-                    <li class="sc-li">
-                        <a class="td-n color-white font-oswald sc-link medium-font" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
-                    </li>
+    <div class="container bg-scylla color-white font-oswald">
 
-                </ul>
-        </div>
+        <div class="title-detail disp-flex-around">
+
+            <h1 class="big-font-xl upper-text">{{atelier.label}}</h1>
         
-        <hr class="atelier-hr" />
-
-        <div class="card marge-1033">
-            <h3 class="marge-1033">EN SAVOIR PLUS</h3>
-            <span cols="30" rows="10">{{atelier.description}}</span>
         </div>
+
+        <div class="disp-flex-around-col pad-2">
+            <p class="big-font">{{atelier.description}}</p>
+        </div>
+        <div class="disp-flex-around-col pad-2">
+            <a class="font-oswald show-btn link-ns color-white" href="{{ path('app_ateliers_index') }}">ATELIERS</a>
+        </div>
+
+        <div class="disp-flex-around-col pad-2">
+            <ul>
+            {% for cour in atelier.cours %}
+                <li class="ls-n li-cours">
+                    <h1 class="big-font">{{cour.label}}</h1>
+                    <p>{{cour.descriptif}}</p>
+                    <p>Saison : {{ cour.debutSaison|format_datetime('long', 'none', locale='fr') }} - {{ cour.finSaison|format_datetime('long', 'none', locale='fr') }}</p>
+                    {# <p>Saison : {{cour.debutSaison|date('F Y', none, 'fr')}} - {{cour.finSaison|date('F Y', none, 'fr')}}</p> #}
+                    <p>Niveau : {{cour.niveau}}</p>
+                    <p>Horaire : {{cour.horaire}}</p>
+                    <p>Lieu : {{cour.lieu}}</p>
+                </li>
+                
+            {% endfor %}
+            </ul>
+        </div>
+
         
 
 

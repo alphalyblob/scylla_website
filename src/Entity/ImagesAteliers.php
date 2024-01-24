@@ -16,7 +16,7 @@ class ImagesAteliers
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Vich\UploadableField(mapping: 'evenements', fileNameProperty: 'nom', size: 'taille')]
+    #[Vich\UploadableField(mapping: 'ateliers', fileNameProperty: 'nom', size: 'taille')]
     private ?File $file = null;
 
     #[ORM\Column(length: 255, nullable:true)]

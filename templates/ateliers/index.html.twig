@@ -1,66 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scylla - Ateliers{% endblock %}
+{% block title %}Scylla - Ateliers
+{% endblock %}
 
 {% block contenu %}
 
-<div class="container-onglet bg-scylla">
-
-    <header></header>
-
-    <main>
-        {% for atelier in ateliers %}
-        <div class="card-container">
-            <img src="https://via.placeholder.com/150" alt="Image Atelier" class="card-image">
-            <div class="card-content">
-                <div class="card-title">{{ atelier.label }}</div>
-                <div class="card-description">{{ atelier.description }}</div>
+	<div class="container bg-scylla center-wrap">
+    {% for atelier in ateliers %}
+        {% for image in atelier.imagesAteliers %}
+            <div class="card">
+                <img src="{{ asset('images/ateliers/' ~ image.nom) }}" class="img-card"> 
+                
+                <h1 class="font-oswald">{{atelier.label}}</h1>
+                <details class="font-ysabeau">
+                    <summary class="font-oswald">Détails...</summary>
+                        {{atelier.description}}
+                        <a class="font-oswald" href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">COURS</a>
+                </details>
             </div>
-            <a class="show-btn color-white font-oswald link-ns" href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">DETAIL</a>
-        </div>
-        {% else %}
-        
-            <h1 class="color-white font-oswald">Il n'y a aucun atelier pour le moment</h1>
-        
         {% endfor %}
-        <a class="show-btn color-white font-oswald link-ns" href="{{ path('app_home') }}">Retour à l'Accueil</a>
-    </main>
-</div>
+     {% endfor %}
+	</div>
+
+
+	{# <header></header>
+			
+			    <main>
+			        {% for atelier in ateliers %}
+			        <div class="card-container">
+			            <img src="https://via.placeholder.com/150" alt="Image Atelier" class="card-image">
+			            <div class="card-content">
+			                <div class="card-title">{{ atelier.label }}</div>
+			                <div class="card-description">{{ atelier.description }}</div>
+			            </div>
+			            <a class="show-btn color-white font-oswald link-ns" href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">DETAIL</a>
+			        </div>
+			        {% else %}
+			        
+			            <h1 class="color-white font-oswald">Il n'y a aucun atelier pour le moment</h1>
+			        
+			        {% endfor %}
+			        <a class="show-btn color-white font-oswald link-ns" href="{{ path('app_home') }}">Retour à l'Accueil</a>
+			    </main> #}
 
 {# <h1>Ateliers</h1> #}
 
-    {# <table class="table">
-            <thead>
-            
-                <tr>
-                   
-                    <th>Label</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                
-                </tr>
-            </thead>
-            <tbody>
-            {% for atelier in ateliers %}
-                <tr>
-                   
-                    <td>{{ atelier.label }}</td>
-                    <td>{{ atelier.description }}</td>
-                    <td>
-                        <a href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">Détail</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="9">Il n'y a aucun atelier pour le moment</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-    </table> #}
+	{# <table class="table">
+			            <thead>
+			            
+			                <tr>
+			                   
+			                    <th>Label</th>
+			                    <th>Description</th>
+			                    <th>Action</th>
+			                
+			                </tr>
+			            </thead>
+			            <tbody>
+			            {% for atelier in ateliers %}
+			                <tr>
+			                   
+			                    <td>{{ atelier.label }}</td>
+			                    <td>{{ atelier.description }}</td>
+			                    <td>
+			                        <a href="{{ path('app_ateliers_show', {'id' : atelier.id}) }}">Détail</a>
+			                    </td>
+			                </tr>
+			            {% else %}
+			                <tr>
+			                    <td colspan="9">Il n'y a aucun atelier pour le moment</td>
+			                </tr>
+			            {% endfor %}
+			            </tbody>
+			    </table> #}
 
-    {# <a href="{{ path('app_category_index') }}">Retour</a> #}
-
-
+	{# <a href="{{ path('app_category_index') }}">Retour</a> #}
 
 
 {% endblock %}
+

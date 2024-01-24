@@ -128,7 +128,7 @@ body{
 }
 
 .big-font-xl {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .of-hid{
@@ -283,3 +283,24 @@ body{
     text-transform: uppercase;
 }
 
+.link-ns{
+    text-decoration: none;
+}
+
+.show-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    transition: all 500ms;
+    text-align: center;
+    align-self: center;
+}
+
+.show-btn:hover{
+    background-color: white;
+    color:black
+}

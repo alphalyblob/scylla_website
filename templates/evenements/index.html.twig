@@ -3,7 +3,26 @@
 {% block title %}Evenements index{% endblock %}
 
 {% block body %}
-<div class="container bg-scylla color-white font-oswald">
+
+<div class="container bg-scylla center-wrap">
+    {% for event in evenements %}
+        {% for image in event.imagesEvenements %}
+            <div class="card">
+                <img src="{{ asset('images/evenements/' ~ image.nom) }}" class="img-card"> 
+                
+                <h1 class="font-oswald">{{event.titre}}</h1>
+                <details class="font-ysabeau">
+                    <summary class="font-oswald">Détails...</summary>
+                        {{event.descriptif}}
+                        <a class="font-oswald" href="{{ path('app_evenements_show', {'id' : event.id}) }}">PLUS</a>
+                </details>
+            </div>
+        {% endfor %}
+     {% endfor %}
+</div>
+
+{% endblock %}
+{# <div class="container bg-scylla color-white font-oswald">
     <h1>Evenements index</h1>
 
     <table class="table">
@@ -27,7 +46,7 @@
                 <td>{{ evenement.commentaire }}</td>
                 <td>
                     <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}">Détail</a>
-                    {# <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a> #}
+                    <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -38,6 +57,5 @@
         </tbody>
     </table>
 
-    {# <a href="{{ path('app_evenements_new') }}">Create new</a> #}
-</div>
-{% endblock %}
+    <a href="{{ path('app_evenements_new') }}">Create new</a>
+</div> #}
