@@ -7,9 +7,10 @@
 <div class="container bg-scylla center-wrap">
     {% for event in evenements %}
         {% for image in event.imagesEvenements %}
-            <div class="card">
-                <img src="{{ asset('images/evenements/' ~ image.nom) }}" class="img-card"> 
-                
+            <div class="card-ev bg-scylla">
+                <div class="illu-ev">
+                    <img src="{{ asset('images/evenements/' ~ image.nom) }}" class="img-card-ev"> 
+                </div>
                 <h1 class="font-oswald">{{event.titre}}</h1>
                 <details class="font-ysabeau">
                     <summary class="font-oswald">Détails...</summary>

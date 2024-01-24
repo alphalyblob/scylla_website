@@ -17,6 +17,7 @@ import './styles/asso.css';
 import './styles/header.css';
 import './styles/galerie.css';
 import './styles/carousel.css';
+import './styles/evenements.css';
 
 
 
