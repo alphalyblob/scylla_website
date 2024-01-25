@@ -4,22 +4,23 @@ namespace App\Controller\Admin;
 
 use App\Entity\Cours;
 use App\Entity\Tarifs;
+use App\Entity\Reseaux;
 use App\Entity\Seances;
 use App\Entity\Adherent;
 use App\Entity\Ateliers;
 use App\Entity\InfosAsso;
 use App\Entity\Evenements;
+use App\Entity\ImagesCours;
 use App\Entity\InfosAdherent;
 use App\Entity\MembresEquipe;
 use App\Entity\TypeEvenement;
+use App\Entity\ImagesAteliers;
+use App\Entity\ImagesEvenements;
 use App\Entity\ParticipantsCours;
 use App\Entity\ParticipantsEvenements;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Admin\AdherentCrudController;
-use App\Entity\ImagesAteliers;
-use App\Entity\ImagesCours;
-use App\Entity\ImagesEvenements;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -53,6 +54,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Images - Évènements', 'fas fa-photo-film', ImagesEvenements::class);
         yield MenuItem::linkToCrud('Images - Ateliers', 'fas fa-photo-film', ImagesAteliers::class);
         yield MenuItem::linkToCrud('Tarifs', 'fas fa-euro-sign', Tarifs::class);
+        yield MenuItem::linkToCrud('Réseaux', 'fas fa-share-nodes', Reseaux::class);
 
 
         yield MenuItem::linkToCrud('Infos Adhérents', 'fas fa-address-card', InfosAdherent::class);
