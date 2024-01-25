@@ -13,7 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class InfosAdherentCrudController extends AbstractCrudController
 {
-    use Trait\ReadDetailTrait;
+    use Trait\ReadEditDetailOnlyTrait;
     public static function getEntityFqcn(): string
     {
         return InfosAdherent::class;
@@ -30,7 +30,7 @@ class InfosAdherentCrudController extends AbstractCrudController
             TextField::new('adresse'),
             DateField::new('dateNaissance'),
             TextField::new('pratique'),
-            AssociationField::new('adherent'),
+            AssociationField::new('adherent'),  
         ];
     }
     

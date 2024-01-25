@@ -36,6 +36,8 @@ class AdherentCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+       
+        
         $passwordnew = TextField::new('password')
             ->setFormType(RepeatedType::class)
             ->setFormTypeOptions([
@@ -56,12 +58,9 @@ class AdherentCrudController extends AbstractCrudController
             $passwordnew,
             TextEditorField::new('password')->hideOnForm(),
             ArrayField::new('roles'),
-            AssociationField::new('infosAdherent'),
-            
-            
+            AssociationField::new('infosAdherent')->renderAsEmbeddedForm(InfosAdherentCrudController::class),
             ArrayField::new('participantsCours')->hideOnForm(),
             ArrayField::new('participantsEvenements')->hideOnForm(),
-
         ];
     }
 }

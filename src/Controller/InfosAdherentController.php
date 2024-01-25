@@ -80,6 +80,7 @@ class InfosAdherentController extends AbstractController
             throw new AccessDeniedException("Vous n'avez pas le droit de changer ces informations.");
         }
         $form = $this->createForm(InfosAdherentType::class, $infosAdherent);
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

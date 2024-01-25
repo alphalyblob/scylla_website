@@ -20,15 +20,27 @@ class AdherentType extends AbstractType
         ->add('password', RepeatedType::class, [
             'type' => PasswordType::class,
             'invalid_message' => 'Erreur de répétition',
-            'options' => ['attr' => ['class' => '']],
+            'options' => [
+                'attr' => [
+                    'class' => 'sc-form'
+                    ]
+                ],
             'required' => true,
             'first_options'  => [
                 'label' => 'Nouveau mot de passe',
-                'attr' => ['class' => 'form-field mdp-field'],
+                'label_attr' => [
+                    'class' => 'sc-form-label marge-top-1dem'
+                ],
+                'attr' => ['class' => 'sc-form'],
             ],
             'second_options' => [
                 'label' => 'Répéter le mot de passe',
-                'attr' => ['class' => 'form-field mdp-field'],
+                'label_attr' => [
+                    'class' => 'sc-form-label marge-top-1dem'
+                ],
+                'attr' => [
+                    'class' => 'sc-form'
+                ],
             ],
         ]);
     }

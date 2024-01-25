@@ -42,7 +42,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $email = (new TemplatedEmail())
             ->from(new Address('no-reply@scylla.com', 'Bienvenue chez Scylla'))
             ->to($entity->getEmail())
-            ->subject('Your password reset request')
+            ->subject('Bienvenue chez Scylla !')
             ->htmlTemplate('created_mail/email_bienvenue.html.twig')
             ->context([
                 'adherent' => $entity,

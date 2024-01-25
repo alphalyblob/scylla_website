@@ -311,3 +311,39 @@ body{
     flex-wrap: wrap;
     justify-content:center;
 }
+
+.disp-flex-center-col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.disp-flex-start-col{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.marge-2{
+    margin: 2rem;
+}
+
+.marge-bot-2{
+    margin-bottom: 2rem;
+}
+
+.marge-top-2{
+    margin-top: 2rem;
+}
+
+
+.marge-4{
+    margin: 4rem;
+}
+
+.pad-4{
+    padding:4rem;
+}
+
