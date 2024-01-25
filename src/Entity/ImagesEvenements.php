@@ -57,7 +57,7 @@ class ImagesEvenements
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
@@ -69,7 +69,7 @@ class ImagesEvenements
         return $this->taille;
     }
 
-    public function setTaille(int $taille): self
+    public function setTaille(?int $taille): self
     {
         $this->taille = $taille;
 

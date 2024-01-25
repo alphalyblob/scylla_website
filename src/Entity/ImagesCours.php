@@ -56,7 +56,7 @@ class ImagesCours
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(?string $nom): static
     {
         $this->nom = $nom;
 
@@ -68,7 +68,7 @@ class ImagesCours
         return $this->taille;
     }
 
-    public function setTaille(int $taille): static
+    public function setTaille(?int $taille): static
     {
         $this->taille = $taille;
 
@@ -99,8 +99,8 @@ class ImagesCours
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->nom;
-    }
+    // public function __toString()
+    // {
+    //     return $this->nom;
+    // }
 }

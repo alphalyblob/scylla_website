@@ -57,7 +57,7 @@ class ImagesAteliers
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(?string $nom): static
     {
         $this->nom = $nom;
 
@@ -69,7 +69,7 @@ class ImagesAteliers
         return $this->taille;
     }
 
-    public function setTaille(int $taille): static
+    public function setTaille(?int $taille): static
     {
         $this->taille = $taille;
 
