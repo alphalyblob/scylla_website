@@ -347,3 +347,32 @@ body{
     padding:4rem;
 }
 
+.color-cyan{
+    color: cyan;
+}
+
+.color-yellow{
+    color: yellow;
+}
+
+.color-red{
+    color: red;
+}
+.color-green{
+    color: green;
+}
+
+
+.sc-icone{
+    max-height: 100px;
+    width: auto;
+}
+
+.bg-icone{
+    background-color: cyan;
+    width: inherit;
+    border-radius: inherit;
+    border : 1px solid black;
+    height: inherit;
+    padding: 1rem;
+}

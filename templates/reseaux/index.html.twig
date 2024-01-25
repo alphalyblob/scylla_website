@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scylla - Reseaux
+{% endblock %}
+
+{% block body %}
+	<div class="container disp-flex-center-col bg-scylla color-white">
+		<div class="disp-flex-center-col font-oswald marge-bot-2">
+			<h1 class="big-font-xl">Suivez-nous</h1>
+			<h4>Pour ne pas perdre une miette de nos aventures !</h4>
+		</div>
+		<div class="disp-flex-center-col font-oswald">
+			{% for reseau in reseaux %}
+				{% set res = '' %}
+				{% if reseau.label == 'Facebook' %}
+					{% set res = 'facebook.png' %}
+				{% elseif reseau.label == 'Twitter' %}
+					{% set res = 'twitter.png' %}
+                {% elseif reseau.label == 'X' %}
+					{% set res = 'x.png' %}
+				{% elseif reseau.label == 'Youtube' %}
+					{% set res = 'youtube.png' %}
+				{% elseif reseau.label == 'Instagram' %}
+					{% set res = 'instagram.png' %}
+				{% endif %}
+				<a class="sc-form-btn link-ns upper-text font-oswald" href="{{reseau.lien}}">
+					<img class="sc-icone bg-icone" src="{{asset('img/res/' ~ res)}}" alt="Logo reseau">
+					{{ reseau.label }}
+				</a>
+			{% endfor %}
+		</div>
+
+	</div>
+{% endblock %}
+

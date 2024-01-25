@@ -17,14 +17,14 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 #[Route('/infos/adherent')]
 class InfosAdherentController extends AbstractController
 {
-    // #[IsGranted('ROLE_MEMBRE')]
-    // #[Route('/', name: 'app_infos_adherent_index', methods: ['GET'])]
-    // public function index(InfosAdherentRepository $infosAdherentRepository): Response
-    // {
-    //     return $this->render('infos_adherent/index.html.twig', [
-    //         'infos_adherents' => $infosAdherentRepository->findAll(),
-    //     ]);
-    // }
+    #[IsGranted('ROLE_MEMBRE')]
+    #[Route('/', name: 'app_infos_adherent_index', methods: ['GET'])]
+    public function index(InfosAdherentRepository $infosAdherentRepository): Response
+    {
+        return $this->render('infos_adherent/index.html.twig', [
+            'infos_adherents' => $infosAdherentRepository->findAll(),
+        ]);
+    }
 
     #[IsGranted('ROLE_USER')]
     #[Route('/new', name: 'app_infos_adherent_new', methods: ['GET', 'POST'])]

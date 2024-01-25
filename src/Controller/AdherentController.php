@@ -97,7 +97,7 @@ class AdherentController extends AbstractController
             $entityManager->remove($adherent);
             $entityManager->flush();
 
-            // Déconnexion manuelle de l'utilisateur après la suppression
+            // Déconnexion manuelle de l'adhérent après la suppression pour éviter les conflits de redirection
             $tokenStorage->setToken(null);
             $request->getSession()->invalidate();
         }
