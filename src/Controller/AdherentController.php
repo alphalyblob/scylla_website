@@ -83,20 +83,25 @@ class AdherentController extends AbstractController
     
     #[IsGranted('ROLE_USER')]
     #[Route('/{id}', name: 'app_adherent_delete', methods: ['POST'])]
-    public function delete(Request $request, Adherent $adherent, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Adherent $adherent, EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage): Response
     {
 
-        // L'utilisateur ne peut  supprimer que son propre compte
-        if ($this->getUser() !== $adherent) {
-            throw new AccessDeniedException("Vous n'êtes pas autorisé à supprimer ce profil.");
+        $user = $tokenStorage->getToken()->getUser();
+        // L'adherent ne peut supprimer que son compte si il est bien l'adherent connecté
+        if ($user !== $adherent) {
+            throw new AccessDeniedException("Vous n'êtes pas autorisé à supprimer ce compte.");
         }
 
 
         if ($this->isCsrfTokenValid('delete'.$adherent->getId(), $request->request->get('_token'))) {
             $entityManager->remove($adherent);
             $entityManager->flush();
+
+            // Déconnexion manuelle de l'utilisateur après la suppression
+            $tokenStorage->setToken(null);
+            $request->getSession()->invalidate();
         }
 
-        return $this->redirectToRoute('app_adherent_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
     }
 }
