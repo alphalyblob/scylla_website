@@ -326,9 +326,23 @@ body{
     flex-direction: column;
 }
 
+.marge-1{
+    margin: 1rem;
+}
+
+.marge-bot-1{
+    margin-bottom: 1rem;
+}
+
+.marge-top-1{
+    margin-top: 1rem;
+}
+
 .marge-2{
     margin: 2rem;
 }
+
+
 
 .marge-bot-2{
     margin-bottom: 2rem;
