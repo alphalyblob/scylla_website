@@ -2,42 +2,36 @@
 
 {% block title %}Scylla - À Propos{% endblock %}
 
-{% block body %}
+{% block contenu %}
 
-    <div class="container bg-scylla color-white">
-        <img class="logo-size" src="{{ asset('img/sc-logo-blanc-transparent.png') }}" alt="logo scylla">
-        <h1 class="big-font font-oswald">A propos de Scylla</h1>
+    <div class="container-center bg-scylla color-white disp-flex-start-col">
+        <div class="log-title">
+            <img class="logo-size" src="{{ asset('img/sc-logo-blanc-transparent.png') }}" alt="logo scylla">
+            <h1 class="big-font-xl font-oswald upper-text txt-a marge-top-2">En savoir plus sur Scylla</h1>
+        </div>
+        
 
-        <table class="table medium-font">
-            <thead class="font-oswald">
-                <tr>
-                    
-                    <th>Nom</th>
-                    <th>Description</th>
-                    <th>Telephone</th>
-                    <th>Mail</th>
-                    <th>Siege</th>
-                    
-                </tr>
-            </thead>
-            <tbody class="font-ysabeau">
+       <div class="form-box disp-flex-center-col font-ysabeau marge-2 border-2">
             {% for infos_asso in infos_assos %}
-                <tr>
-                    
-                    <td>{{ infos_asso.nom }}</td>
-                    <td>{{ infos_asso.description }}</td>
-                    <td>{{ infos_asso.telephone }}</td>
-                    <td>{{ infos_asso.mail }}</td>
-                    <td>{{ infos_asso.siege }}</td>
+               
+            
+            <h3 class="txt-a marge-bot-1 upper-text">{{ infos_asso.nom }}</h3>
+            
+            <h3 class="parag marge-bot-1">{{ infos_asso.description }}</h3>
+            <h3 class="txt-a upper-text">NOTRE SIEGE</h3>
+            <h3 class="txt-a marge-bot-1 marge-bot-2">{{ infos_asso.siege }}</h3>
                 
-                </tr>
             {% else %}
-                <tr>
-                    <td colspan="7">Informations à venir...</td>
-                </tr>
+
+            <h3 class="txt-a marge-bot-1 upper-text marge-bot-2">Informations à venir...</h3>
+            
             {% endfor %}
-            </tbody>
-        </table>
+
+            <hr class="sc-trait">
+            <h3 class="txt-a marge-bot-1">Besoin d'une information ? Envie de rejoindre la troupe ?</h3>
+            <a class="sc-form-btn link-ns" href="{{ path('app_contact') }}">CONTACTEZ-NOUS</a>
+       </div>
+       
     </div>
 
    

@@ -22,5 +22,14 @@ class InfosAssoController extends AbstractController
         ]);
     }
 
+    #[Route('/contact', name: 'app_contact', methods: ['GET'])]
+    public function contact(InfosAssoRepository $infosAssoRepository): Response
+    {
+        return $this->render('infos_asso/contact.html.twig', [
+            'infos_assos' => $infosAssoRepository->findAll(),
+        ]);
+    }
+
+
     
 }

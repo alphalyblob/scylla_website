@@ -201,9 +201,7 @@ body{
     /* La ligne s'étend à 100% de la largeur lorsqu'on survole le lien */
 }
 
-/* .sc-link:hover {
-    background-image: linear-gradient(to right, #fff, #0032B4);
-} */
+
 
 .sc-li {
     display: float;
@@ -389,4 +387,32 @@ body{
     border : 1px solid black;
     height: inherit;
     padding: 1rem;
+}
+
+.parag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+}
+
+.sc-trait {
+    height: 1px;
+    width: 600px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1rem;
+    
+}
+
+.border-2{
+    border: 2px solid white;
+}
+
+.txt-u{
+    text-decoration: underline;
+}
+
+.small-font{
+    font-size: smaller;
 }

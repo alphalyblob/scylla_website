@@ -349,7 +349,7 @@
     }
 
     .big-font-xl {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .font-thin {
@@ -512,6 +512,138 @@
         margin-bottom: 4rem;
     }
     /* FIN LOGIN MOBILE */
+
+
+    /*INFOS ASSO MOBILE*/
+    .parag{
+        max-width: 300px;
+    }
+
+    .sc-trait {
+        height: 1px;
+        max-width: 300px;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 1rem;
+        
+    }
+     /* FIN INFOS ASSO MOBILE */
+
+     .form-box{
+        border: 1px solid white;
+        padding: 0.5rem;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        margin:0;
+        border-bottom: 1px solid white;
+        
+    }
+    
+    .container-center{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-self: center;
+        width: 100%;
+        min-height: 100vh;
+        margin:0;
+        border-bottom: 1px solid white;
+        max-width: inherit;
+    }
+
+    /* MARGE MOBILE */
+    .marge-1{
+        margin: 0.2rem;
+    }
+    
+    .marge-bot-1{
+        margin-bottom: 0.2rem;
+    }
+    
+    .marge-top-1{
+        margin-top: 0.2rem;
+    }
+    
+    .marge-2{
+        margin: 0.4rem;
+    }
+    
+    
+    
+    .marge-bot-2{
+        margin-bottom: 0.4rem;
+    }
+    
+    .marge-top-2{
+        margin-top: 0.4rem;
+    }
+    
+    
+    .marge-4{
+        margin: 0.6rem;
+    }
+    
+    .pad-4{
+        padding:0.6rem;
+    }
+
+    /* FIN MARGE MOBILE */
+
+    /* HEADER MOBILE */
+   
+    .disp-flex-al-cent{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0.1;
+    
+    }
+    
+    .flex-start{
+        justify-content: flex-start;
+    }
+    
+    .flex-end{
+        justify-content: flex-end;
+        text-align: center;
+    }
+    
+    
+    .pad-1{
+        padding: 0.1rem;
+    }
+    
+    .header-img {
+        height: 2rem;
+        width: 3em;
+        height: 4em;
+    
+    }
+    
+    .header-nav{
+        padding: 0.2rem;
+    }
+
+    .sc-link {
+        position: relative;
+    }
+    
+    .sc-link::after {
+        height: 1px;
+        /* Hauteur de la ligne */
+        transition: width 0.4s;
+        /* Transition sur la propriété width pendant 0.4s */
+    }
+    
+    .sc-link:hover::after {
+        width: 100%;
+        /* La ligne s'étend à 100% de la largeur lorsqu'on survole le lien */
+    }
+    /* FIN HEADER MOBILE */
 
    
 }

@@ -9,7 +9,7 @@
             </a>
 		</div>
 
-		<div class="flex-end">
+		<div class="flex-end mob-pos">
 				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_home') }}">ACCUEIL</a>
 			{% if is_granted('ROLE_GESTION') %}
 				<a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
