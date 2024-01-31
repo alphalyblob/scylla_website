@@ -3,6 +3,7 @@
 html,
 body {
     min-height: 100vh;
+    overflow-x: hidden;
     margin: 0;
     overscroll-behavior: none;
 }
@@ -141,6 +142,10 @@ body{
 
 .medium-font {
     font-size: large;
+}
+
+.medium-font-plus {
+    font-size: 1.5rem;
 }
 
 .big-brand-font {
@@ -285,6 +290,7 @@ body{
     text-decoration: none;
 }
 
+
 .show-btn{
     display: flex;
     align-items: center;
@@ -415,4 +421,24 @@ body{
 
 .small-font{
     font-size: smaller;
+}
+
+.disp-flex-around-resp{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.boxing{
+    border: 1px solid white;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.w-inherit{
+    max-width: inherit;
+}
+
+.title-font{
+    font-size: 4rem;
 }

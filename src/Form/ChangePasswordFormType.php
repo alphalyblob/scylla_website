@@ -20,7 +20,11 @@ class ChangePasswordFormType extends AbstractType
                 'options' => [
                     'attr' => [
                         'autocomplete' => 'new-password',
+                        'class' => 'sc-form'
                     ],
+                    'label_attr' => [
+                    'class' => 'sc-form-label marge-top-1dem'
+                ]
                 ],
                 'first_options' => [
                     'constraints' => [

@@ -7,19 +7,19 @@
 
         <div class="title-detail disp-flex-around">
 
-            <h1 class="big-font-xl upper-text">{{atelier.label}}</h1>
+            <h1 class="big-font-xl upper-text marge-top-1">{{atelier.label}}</h1>
         
         </div>
 
-        <div class="disp-flex-around-col pad-2">
-            <p class="big-font">{{atelier.description}}</p>
+        <div class="disp-flex-around-col pad-1">
+            <p class="medium-font-plus parag marge-bot-1 txt-a">{{atelier.description}}</p>
         </div>
-        <div class="disp-flex-around-col pad-2">
+        <div class="disp-flex-around-col pad-1">
             <a class="font-oswald show-btn link-ns color-white" href="{{ path('app_ateliers_index') }}">ATELIERS</a>
         </div>
 
-        <div class="disp-flex-around-col pad-2">
-            <ul>
+        <div class="disp-flex-around-col pad-1">
+            <ul class="pad-0">
             {% for cour in atelier.cours %}
                 <li class="ls-n li-cours">
                     <h1 class="big-font">{{cour.label}}</h1>

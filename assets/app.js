@@ -23,7 +23,6 @@ import './styles/formulaires.css';
 
 
 
-import './js/custom.js';
 import './js/carousel.js';
 import './js/eventdetcar.js';
 

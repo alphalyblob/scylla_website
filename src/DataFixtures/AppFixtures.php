@@ -26,7 +26,6 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $faker = Factory::create('fr_FR');
 
         // TypeEvenementFactory:: createMany(5); 
         // EvenementsFactory::createMany(8);
@@ -35,7 +34,6 @@ class AppFixtures extends Fixture
         // AdherentFactory::createMany(10);
         // InfosAdherentFactory::createMany(10);
         // InfosAssoFactory::createOne();
-        // MediasFactory::createMany(2);
         // MembresEquipeFactory::createMany(4);
         // SeancesFactory::createMany(50);
         // TarifsFactory::createMany(6);

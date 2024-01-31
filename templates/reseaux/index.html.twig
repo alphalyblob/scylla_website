@@ -9,7 +9,7 @@
 			<h1 class="big-font-xl">Suivez-nous</h1>
 			<h4>Pour ne pas perdre une miette de nos aventures !</h4>
 		</div>
-		<div class="disp-flex-center-col font-oswald">
+		<div class="disp-flex-around-resp font-oswald">
 			{% for reseau in reseaux %}
 				{% set res = '' %}
 				{% if reseau.label == 'Facebook' %}
@@ -22,8 +22,10 @@
 					{% set res = 'youtube.png' %}
 				{% elseif reseau.label == 'Instagram' %}
 					{% set res = 'instagram.png' %}
+				{% elseif reseau.label == 'HelloAsso' %}
+					{% set res = 'helloasso.png' %}
 				{% endif %}
-				<a class="sc-form-btn link-ns upper-text font-oswald" href="{{reseau.lien}}">
+				<a class="sc-form-btn link-ns upper-text font-oswald marge-1" href="{{reseau.lien}}">
 					<img class="sc-icone bg-icone" src="{{asset('img/res/' ~ res)}}" alt="Logo reseau">
 					{{ reseau.label }}
 				</a>

@@ -3,20 +3,24 @@
 {% block title %}Scylla - Réinitilisation de mot de passe{% endblock %}
 
 {% block body %}
-<div class="container bg-scylla disp-flex disp-flex-around color-white font-oswald">
+<div class="container bg-scylla disp-flex-center-col color-white font-oswald">
     {% for flash_error in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <h1>Réinitialise ton mot de passe</h1>
-    {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email) }}
-        <div class="disp-flex-around-col">
-            <small>
-                Indique ton adresse mail pour recevoir le lien de réinitialisation de mot de passe.
-            </small>
-        </div>
-
-        <button class="go-btn color-white font-oswald width-height disp-flex-around">Recevoir le mail de réinitialisation</button>
-    {{ form_end(requestForm) }}
+    <h1 class="big-font-xl txt-a upper-text">Réinitialise ton mot de passe</h1>
+    <div class="boxing marge-2">
+    
+        {{ form_start(requestForm) }}
+            {{ form_row(requestForm.email) }}
+            <div class="disp-flex-center-col marge-top-1">
+                <p class="txt-a medium-font">
+                    Indique ton adresse mail pour recevoir le lien de réinitialisation de mot de passe.
+                </p>
+            </div>
+            <div class="disp-flex-around">
+                <button class="go-btn color-white font-oswald disp-flex-around">Recevoir le lien</button>
+            </div>
+        {{ form_end(requestForm) }}
+    </div>
 </div>
 {% endblock %}

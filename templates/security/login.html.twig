@@ -3,26 +3,28 @@
 {% block title %}Scylla - Connexion{% endblock %}
 
 {% block body %}
-<div class="container bg-scylla">
-	<form class="color-white" method="post">
+<div class="container-center disp-flex-center-col bg-scylla">
+
+	<h1 class="w-inherit color-white font-oswald title-font marge-bot-2 txt-a upper-text border-bot border-top">Connectez-vous</h1>
+
+	<form class="color-white boxing" method="post">
 		{% if error %}
-			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			<div class="font-oswald marge-1">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
 
 		{% if app.user %}
-			<div class="mb-3">
-				Bienvenue
-				{{ app.user.userIdentifier }}, vous êtes connecté(e)
+			<div class="font-oswald">
+				Hey
+				{{ app.user.userIdentifier }}, tu es déjà connecté(e)
 				<button>
-					<a href="{{ path('app_logout') }}">Déconnexion</a>
+					<a class="font-oswald color-white link-ns" href="{{ path('app_logout') }}">Déconnexion</a>
 				</button>
 			</div>
 		{% endif %}
 
         
 
-        <h1 class="login-title font-oswald">Connectez-vous</h1>
-        <hr class="login-hr" />
+        
         <div class="field-box">
             <label class="font-ysabeau big-font" for="inputEmail">Email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-field mail-field font-oswald" autocomplete="email" required autofocus>
@@ -31,8 +33,8 @@
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			<div class="checkbox mb-3">
-				<label for="_remember_me">
-					<input class="color-white font-oswald" type="checkbox" name="_remember_me">Se souvenir de moi
+				<label for="_remember_me" class="font-oswald">
+					<input class="color-white marge-1" type="checkbox" name="_remember_me">Se souvenir de moi
 					
 				</label>
 			</div>
@@ -41,12 +43,10 @@
                     SE CONNECTER
             </button>
        </div>
-
 	</form>
-	<hr class="login-hr" />
 
-	<div class="disp-flex-around">
-		<a href="{{ path('app_forgot_password_request') }}" class="color-white font-oswald big-font mdp-a"> Mot de passe oublié </a>
+	<div class="marge-top-1 txt-a">
+		<a href="{{ path('app_forgot_password_request') }}" class="color-white font-oswald big-font link-ns"> Mot de passe oublié </a>
 	</div>
 	
 </div>

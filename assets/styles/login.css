@@ -64,13 +64,17 @@
     border: 2px solid white;
     background-color: #0033b4bb;
     box-shadow: none;
+    cursor: pointer;
+    
 }
 
-.login-hr{
-    margin-top: 1.5rem;
-    border-color: white;
-    margin-bottom: 1.5rem;
 
+.border-bot{
+  border-bottom: 1px solid white;
+
+}
+.border-top{
+  border-top: 1px solid white;
 }
 
 

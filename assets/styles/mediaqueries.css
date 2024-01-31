@@ -108,6 +108,10 @@
         font-size: 3rem;
     }
 
+    .title-font{
+        font-size: 3rem;
+    }
+
     .font-thin {
         font-weight: 200;
     }
@@ -352,6 +356,10 @@
         font-size: 1.5rem;
     }
 
+    .title-font{
+        font-size: 2rem;
+    }
+
     .font-thin {
         font-weight: 200;
     }
@@ -560,11 +568,11 @@
     }
     
     .marge-bot-1{
-        margin-bottom: 0.2rem;
+        margin-bottom: 1rem;
     }
     
     .marge-top-1{
-        margin-top: 0.2rem;
+        margin-top: 1rem;
     }
     
     .marge-2{
@@ -645,5 +653,21 @@
     }
     /* FIN HEADER MOBILE */
 
+    .medium-font-plus {
+        font-size: 1rem;
+    }
+
+    .disp-flex-around-resp{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .boxing{
+        border: 1px solid white;
+        border-radius: 1rem;
+        padding: 1rem;
+    }
    
 }
