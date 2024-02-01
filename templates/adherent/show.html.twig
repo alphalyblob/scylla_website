@@ -2,9 +2,11 @@
 
 {% block title %}Scylla - Mon Profil{% endblock %}
 
+
+
 {% block contenu %}
 
-	<div class="container bg-scylla color-white grid-profile">
+	<div class="container-center bg-scylla color-white grid-profile">
     
         <div class="frame-box area-a">
         
@@ -46,19 +48,21 @@
 		</table>
 
         
-        <ul class="ul-inline area-c">
+        <ul class="ul-prof-links area-c">
             <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
             <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_infos_adherent_show', {'id': adherent.infosAdherent.id}) }}">Voir mes infos</a></li>
             <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_infos_adherent_edit', {'id': adherent.infosAdherent.id}) }}">Modifier mes infos</a></li>
+           
             
 		{% if is_granted('ROLE_MEMBRE') %}
             <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_adherent_index') }}">Liste des Adherents</a></li>
 		{% endif %}
+        {{ include('adherent/_delete_form.html.twig') }}
         </ul>
         
 
-        <div class="area-d">
-            <div class="box-titre marge-top-2">
+        <div class="area-d disp-flex-center">
+            <div class="box-titre marge-top-2 disp-flex-center-col">
                 <h3 class="font-oswald color-white big-font">MES SEANCES</h3>
             </div>
             
@@ -96,9 +100,9 @@
 
 
 
-        <div class="area-e">
-            <div class="box-titre marge-top-2">
-                <h3 class="font-oswald color-white big-font">MES EVENEMENTS</h3>
+        <div class="area-e disp-flex-center">
+            <div class="box-titre marge-top-2 disp-flex-center-col">
+                <h3 class="font-oswald color-white big-font txt-a">MES EVENEMENTS</h3>
             </div>
             <div class="carousel2">
                 <div class="carousel__scene2">
@@ -123,12 +127,13 @@
                     <button class="next-button2">&#x2B07;</button>
                 </div>
             </div>
+
             <div id="totalEventsCount" style="display: none;">{{ totalEvents }}</div>
         </div>
 
         
 
-		{{ include('adherent/_delete_form.html.twig') }}
+		
 	</div>
 {% endblock %}
 

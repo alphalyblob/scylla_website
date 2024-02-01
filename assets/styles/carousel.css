@@ -10,9 +10,11 @@
 
 .carousel {
     display: flex;
+    justify-content: center;
     align-items: center;
     position: relative;
     padding: 130px 0;
+    
 }
 
 .carousel__scene {
@@ -22,7 +24,7 @@
     max-width: 95vw;
     padding-top: 150px;
     perspective: 100px;
-    /*overflow: hidden;*/
+    /* overflow: hidden; */
 }
 
 .carousel__controls {
@@ -32,7 +34,7 @@
     align-items: center;
     padding: 10px;
     position: absolute;
-    right: 15px;
+    right: 15px; 
 }
 
 .previous-button, .next-button {
@@ -145,6 +147,7 @@
 .carousel2 {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     padding: 130px 0;
 }
@@ -259,3 +262,100 @@
 .carousel__cell2:nth-child(9) { transform: rotateX(320deg) translateZ(288px); }
 
 /* FIN CAROUSEL EVENEMENTS */
+
+
+/*MOBILE*/
+@media screen and (min-width: 300px) and (max-width: 400px) {
+
+    .carousel__controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+    }
+
+    .carousel__cell {
+        font-size: 15px;
+        width: 280px;
+    }
+
+    .previous-button, .next-button {
+       
+        margin: 10px 0;
+        padding: 2px;
+        width: 40px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .carousel__controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+    }
+
+    .carousel__cell2 {
+        font-size: 15px;
+        width: 280px;
+    }
+
+    .previous-button2, .next-button2 {
+       
+        margin: 10px 0;
+        padding: 2px;
+        width: 40px;
+        height: 100px;
+        font-size: 2rem;
+    }
+}
+
+/*TABLETTE*/
+@media screen and  (max-width: 1024px) {
+
+    .carousel__controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+    }
+
+  
+
+    .previous-button, .next-button {
+       
+        margin: 10px 0;
+        padding: 2px;
+        width: 40px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .carousel__controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+    }
+
+
+    .previous-button2, .next-button2 {
+       
+        margin: 10px 0;
+        padding: 2px;
+        width: 40px;
+        height: 100px;
+        font-size: 2rem;
+    }
+
+    
+
+}

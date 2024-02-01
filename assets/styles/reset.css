@@ -39,7 +39,7 @@ html {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.6;
+  /* line-height: 1.6; */
 }
 
 /* A elements that don't have a class get default styles */

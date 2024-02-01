@@ -24,6 +24,6 @@ import './styles/formulaires.css';
 
 
 import './js/carousel.js';
-import './js/eventdetcar.js';
+
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')

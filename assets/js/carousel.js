@@ -2,7 +2,7 @@
 
 
 const totalSeancesCount = document.getElementById('totalSeancesCount').textContent.trim();
-
+console.log(totalSeancesCount);
 
 
 const carousel = document.querySelector('.carousel__list');

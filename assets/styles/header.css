@@ -33,3 +33,70 @@
 .header-nav{
     padding: 0.2rem;
 }
+
+.head-link{
+    text-decoration: none;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: 2rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    transition: all 800ms;
+}
+
+.head-link:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.head-link:focus{
+    transform: scale(0.5);
+}
+.head-link:active{
+    box-shadow: white;
+}
+
+/*MOBILE*/
+@media screen and (min-width: 300px) and (max-width: 500px) {
+    .head-link{
+        text-decoration: none;
+        font-family: 'Oswald', 'sans-serif';
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+        transition: all 400ms;
+    }
+    .head-link:hover{
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    
+    .head-link:focus{
+        transform: scale(0.5);
+    }
+  
+}
+
+/*TABLETTE*/
+@media screen and  (max-width: 992px) {
+
+    .head-link{
+        text-decoration: none;
+        font-family: 'Oswald', 'sans-serif';
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+        transition: all 400ms;
+    }
+    .head-link:hover{
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    
+    .head-link:focus{
+        transform: scale(0.5);
+    }
+
+}

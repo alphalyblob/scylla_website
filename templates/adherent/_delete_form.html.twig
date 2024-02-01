@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('app_adherent_delete', {'id': adherent.id}) }}" onsubmit="return confirm('Es-tu sûr.e de vouloir supprimer ton compte ? Cette action est définitive.');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ adherent.id) }}">
-    <button class="sc-form-btn">SUPPRIMER MON COMPTE</button>
+    <button class="sc-form-btn marge-2">SUPPRIMER MON COMPTE</button>
 </form>

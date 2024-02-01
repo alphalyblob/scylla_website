@@ -26,12 +26,10 @@
 
 
 
-.ul-inline{
+.ul-prof-links{
     display: flex;
     flex-direction: column;
     list-style: none;
-    margin: 1rem;
-    
     align-items: flex-start;
     justify-content: space-around;
     border: 1px solid white;
@@ -40,7 +38,7 @@
 
 }
 
-.ul-inline>li{
+.ul-prof-links>li{
     padding: 1rem;
     max-height: 4rem;
     margin-left: 0;
@@ -48,7 +46,7 @@
     transition: all 200ms;
 }
 
-.ul-inline>li:hover{
+.ul-prof-links>li:hover{
     background-color: #002277a3;
     border-radius: 1rem;
     color: black;
@@ -98,13 +96,13 @@
 }
 
 .box-titre{
-    padding: 2rem;
+    padding: 0.5rem;
+    width: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid white;
-    border-radius: 3rem;
-    background-color: #002177;
+    border-radius: 1rem;
 }
 
 .marge-top-2{
@@ -114,12 +112,9 @@
 
 /* Media Queries pour les tablettes et les téléphones */
 
-@media screen and (max-width: 768px) {
-    .frame-box {
-       
-        width: 100%; 
-        min-width: auto; 
-    }
+@media screen and (max-width: 1024px) {
+
+    
 
     .grid-profile{
         display: grid;
@@ -143,19 +138,21 @@
         flex-flow: column nowrap;
         text-align: center;
         transition: all 200ms;
-        margin-top: 1rem;
-        margin-left: 1.5rem;
+        margin:1rem;
+        justify-self: center;
     }
     .sc-profile-table{
         max-width: 20rem;
-        margin-left: 1rem;
+        margin: 1rem;
+        justify-self: center;
         
     }
-    .ul-inline{
+    .ul-prof-links{
         display: flex;
         flex-direction: column;
+        justify-self: center;
         list-style: none;
-        margin: 0;
+        margin: 1rem;
         padding-left: 0px;
         align-items: flex-start;
         justify-content: space-around;

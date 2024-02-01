@@ -52,12 +52,22 @@
     color: white;
     font-family: 'Oswald', 'sans-serif';
     transition: all 200ms;
+    cursor: pointer;
 }
 
 .sc-form-btn:hover{
     background-color: white;
     color: #002177;
-    transform: scale(1);
+    transform: scale(1.05);
     cursor: pointer;
     
 }
+
+.sc-form-btn:focus{
+    cursor: pointer;
+}
+
+.sc-form-btn:active{
+    cursor: pointer;
+}
+

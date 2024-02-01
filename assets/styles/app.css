@@ -3,7 +3,7 @@
 html,
 body {
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x:hidden;
     margin: 0;
     overscroll-behavior: none;
 }
@@ -441,4 +441,8 @@ body{
 
 .title-font{
     font-size: 4rem;
+}
+
+.as-center{
+    align-self: center;
 }
