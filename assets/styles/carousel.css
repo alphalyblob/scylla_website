@@ -264,58 +264,63 @@
 /* FIN CAROUSEL EVENEMENTS */
 
 
+
+
+
+
+
+
+
+
 /*MOBILE*/
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 300px) and (max-width: 500px) {
+    
+    .carousel {
+        
+        padding: 180px 0;
+        
+    }
 
     .carousel__controls {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        position: absolute;
+        flex-direction: row;
+        top: 15px;
+        left: 0px;
+        
+    }
+    
+    .previous-button, .next-button {
+        margin: 0 20px;
+        width: 100px;
+        height: 50px;
     }
 
     .carousel__cell {
-        font-size: 15px;
-        width: 280px;
+        
+        font-size: 18px;
     }
 
-    .previous-button, .next-button {
-       
-        margin: 10px 0;
-        padding: 2px;
-        width: 40px;
-        height: 100px;
-        font-size: 2rem;
+    .carousel__controls2 {
+        flex-direction: row;
+        top: 15px;
+        left: 0px;
     }
     
-    .carousel__controls2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        position: absolute;
-    }
-
-    .carousel__cell2 {
-        font-size: 15px;
-        width: 280px;
-    }
-
     .previous-button2, .next-button2 {
-       
-        margin: 10px 0;
-        padding: 2px;
-        width: 40px;
-        height: 100px;
-        font-size: 2rem;
+        margin: 0 20px;
+        width: 100px;
+        height: 50px;
+    }
+      
+    .carousel__cell2 {
+        
+        font-size: 18px;
     }
 }
 
 /*TABLETTE*/
-@media screen and  (max-width: 1024px) {
+@media screen and (min-width: 501px) and (max-width: 1024px) {
+
+
 
     .carousel__controls {
         display: flex;
@@ -323,14 +328,14 @@
         justify-content: center;
         align-items: center;
         padding: 10px;
-        position: absolute;
+        position: relative;
     }
 
   
 
     .previous-button, .next-button {
        
-        margin: 10px 0;
+        margin: 10px 20px;
         padding: 2px;
         width: 40px;
         height: 100px;
@@ -343,13 +348,13 @@
         justify-content: center;
         align-items: center;
         padding: 10px;
-        position: absolute;
+        position: relative;
     }
 
 
     .previous-button2, .next-button2 {
        
-        margin: 10px 0;
+        margin: 10px 20px;
         padding: 2px;
         width: 40px;
         height: 100px;

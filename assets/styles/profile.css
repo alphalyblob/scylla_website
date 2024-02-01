@@ -112,6 +112,9 @@
 
 /* Media Queries pour les tablettes et les téléphones */
 
+
+    
+
 @media screen and (max-width: 1024px) {
 
     
@@ -119,13 +122,13 @@
     .grid-profile{
         display: grid;
         grid-template-areas:
-            "a a a"
-            "b b b"
-            "b b b"
-            "f f f"
-            "c c c"
-            "d d d"
-            "e e e";
+            "a"
+            "b"
+            "b"
+            "f"
+            "c"
+            "d"
+            "e";
     }
     .frame-box{
         max-width: 20rem;
