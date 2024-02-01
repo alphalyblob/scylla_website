@@ -7,6 +7,7 @@ use App\Form\AdherentType;
 use Symfony\Component\WebLink\Link;
 use App\Repository\AdherentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,10 +22,16 @@ class AdherentController extends AbstractController
 {
     #[IsGranted('ROLE_MEMBRE')]
     #[Route('/', name: 'app_adherent_index', methods: ['GET'])]
-    public function index(AdherentRepository $adherentRepository): Response
+    public function index(AdherentRepository $adherentRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
+        $data = $adherentRepository->findAll();
+        $adherents = $paginatorInterface->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('adherent/index.html.twig', [
-            'adherents' => $adherentRepository->findAll(),
+            'adherents' => $adherents,
         ]);
     }
 

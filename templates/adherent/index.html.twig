@@ -6,7 +6,7 @@
 
 <div class="container-center bg-scylla color-white font-ysabeau">
     
-    <a class="td-n color-white font-oswald sc-link medium-font pad-1" href="{{ path('app_infos_adherent_index') }}">INFORMATIONS DES ADHERENTS</a>
+    <a class="td-n color-white font-oswald link-ns medium-font pad-1" href="{{ path('app_infos_adherent_index') }}">INFORMATIONS DES ADHERENTS</a>
     <h1 class="txt-a">Liste des adhérents</h1>
 
     <table class="sc-table">
@@ -28,7 +28,11 @@
             </tr>
         {% endfor %}
         </tbody>
+       
     </table>
+    <div class="txt-a color-white font-oswald">
+        {{ knp_pagination_render(adherents) }}
+    </div>
 
 
     

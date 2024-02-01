@@ -6,6 +6,7 @@ use App\Entity\InfosAdherent;
 use App\Form\InfosAdherentType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\InfosAdherentRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,16 @@ class InfosAdherentController extends AbstractController
 {
     #[IsGranted('ROLE_MEMBRE')]
     #[Route('/', name: 'app_infos_adherent_index', methods: ['GET'])]
-    public function index(InfosAdherentRepository $infosAdherentRepository): Response
+    public function index(InfosAdherentRepository $infosAdherentRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
+        $data = $infosAdherentRepository->findAll();
+        $infos_adherents = $paginatorInterface->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('infos_adherent/index.html.twig', [
-            'infos_adherents' => $infosAdherentRepository->findAll(),
+            'infos_adherents' => $infos_adherents,
         ]);
     }
 

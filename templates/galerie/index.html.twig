@@ -14,12 +14,16 @@
 	    {% else %}
 	        <h1 colspan="7">Photos à venir...</h1>
 	    {% endfor %}
-	
-	    {% for co_image in co_images %}
-	        <img src="{{ asset('images/cours/' ~ co_image.nom) }}" class="up-img"> 
-	    {% else %}
-	        <h1 colspan="7">Photos à venir...</h1>
-	    {% endfor %}
+
+
+		{% if app.user %}
+		
+			{% for co_image in co_images %}
+				<img src="{{ asset('images/cours/' ~ co_image.nom) }}" class="up-img"> 
+			{% else %}
+				<h1 colspan="7">Photos à venir...</h1>
+			{% endfor %}
+		{% endif %}
 	
 	
 	</div>
