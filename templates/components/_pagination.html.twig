@@ -1,0 +1,39 @@
+{% if pageCount > 1 %}
+    <div class="il-block">
+        <div class="pagi-div">
+        {% if first is defined and current != first %}
+            <span class="pagi-span-1">
+                <a class="pagi-a" href="{{ path(route, query|merge({(pageParameterName): first})) }}">&lt;&lt;</a>
+            </span>
+        {% endif %}
+
+        {% if previous is defined %}
+            <span class="pagi-span-2">
+                <a class="pagi-a" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&lt;</a>
+            </span>
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <span class="pagi-span-3">
+                    <a class="pagi-a" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                </span>
+            {% else %}
+                <span class="pagi-span-4">{{ page }}</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if next is defined %}
+            <span class="pagi-span-5">
+                <a class="pagi-a" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">&gt;</a>
+            </span>
+        {% endif %}
+
+        {% if last is defined and current != last %}
+            <span class="pagi-span-6">
+                <a class="pagi-a" href="{{ path(route, query|merge({(pageParameterName): last})) }}">&gt;&gt;</a>
+            </span>
+        {% endif %}
+        </div>
+    </div>
+{% endif %}

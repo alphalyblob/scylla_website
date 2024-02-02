@@ -1,0 +1,102 @@
+.il-block{
+    display: inline-block;
+    margin: 1rem;
+}
+
+.pagi-div{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    width: auto;
+
+}
+
+.pagi-span-1{
+    background-color: white;
+    color: #0032B4;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+    border-right: 1px solid;
+    border-color: #0032B4;
+    font-weight: bold;
+    border-radius: 0.5rem;
+
+}
+
+.pagi-span-2{
+    background-color: white;
+    color: #0032B4;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 1.125rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-right: 1px solid;
+    border-color: #0032B4;
+    border-radius: 0.5rem;
+}
+
+.pagi-span-3 {
+    background-color: white;
+    color: #0032B4;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+    border-right: 1px solid;
+    border-color: #0032B4;
+    border-radius: 0.5rem;
+}
+
+.pagi-span-4 {
+    background-color: #0032B4;
+    color: white; 
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem; 
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    border: 1px solid white;
+}
+
+.pagi-span-5{
+    background-color: white; 
+    color: #0032B4;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+    border-right: 1px solid white;
+    border-color: #0032B4;
+    border-radius: 0.5rem;
+}
+
+.pagi-span-6 {
+    background-color: white;
+    color: #0032B4;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+    border: 1px solid #0032B4;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+
+.pagi-a{
+    text-decoration: none;
+}
+.pagi-a:visited{
+    color: #002177;
+}
+
+
+

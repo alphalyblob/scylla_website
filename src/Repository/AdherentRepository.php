@@ -41,13 +41,6 @@ class AdherentRepository extends ServiceEntityRepository implements PasswordUpgr
         $this->getEntityManager()->flush();
     }
 
-
-    // //ajout pagination kpn
-    // public function findForPagination(?InfosAdherent )
-    // {
-
-    // }
-
 //    /**
 //     * @return Adherent[] Returns an array of Adherent objects
 //     */

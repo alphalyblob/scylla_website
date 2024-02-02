@@ -2,8 +2,8 @@
 
 {% block title %}InfosAdherent{% endblock %}
 
-{% block body %}
-<div class="container disp-flex-center-col bg-scylla color-white font-oswald">
+{% block main %}
+<main class="container disp-flex-center-col bg-scylla color-white font-oswald">
     <h1 class="marge-2">MES INFORMATIONS</h1>
 
     <div class="form-box">
@@ -41,5 +41,5 @@
 
     <a class="sc-form-btn link-ns marge-2" href="{{ path('app_infos_adherent_edit', {'id': infos_adherent.id}) }}">MODIFIER</a>
 
-</div>
+</main>
 {% endblock %}

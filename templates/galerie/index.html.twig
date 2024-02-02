@@ -3,9 +3,9 @@
 {% block title %}Scylla - Galerie
 {% endblock %}
 
-{% block body %}
+{% block main %}
 
-<div class="container-center bg-scylla color-white font-oswald">
+<main class="container-center bg-scylla color-white font-oswald">
 	
 	<div class="galerie-disp">
 	
@@ -14,6 +14,9 @@
 	    {% else %}
 	        <h1 colspan="7">Photos à venir...</h1>
 	    {% endfor %}
+		<section class="txt-a font-oswald">
+        	{{ knp_pagination_render(ev_images) }}
+    	</section>
 
 
 		{% if app.user %}
@@ -50,7 +53,7 @@
 	        <h1 colspan="7">Photos à venir...</h1>
 	    {% endfor %}
 	</div> #}
-</div>
+</main>
 
 
 {% endblock %}

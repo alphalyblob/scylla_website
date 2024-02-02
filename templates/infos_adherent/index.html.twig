@@ -2,8 +2,8 @@
 
 {% block title %}Scylla - Infos Adhérents{% endblock %}
 
-{% block body %}
-<div class="container-center bg-scylla color-white font-ysabeau">
+{% block main %}
+<main class="container-center bg-scylla color-white font-ysabeau">
     <h1 class="txt-a">Liste des informations des Adhérents</h1>
 
     <table class="sc-table">
@@ -34,9 +34,9 @@
         {% endfor %}
         </tbody>
     </table>
-    <div class="txt-a color-white font-oswald">
+    <section class="txt-a font-oswald">
         {{ knp_pagination_render(infos_adherents) }}
-    </div>
+    </section>
 
-</div>
+</main>
 {% endblock %}

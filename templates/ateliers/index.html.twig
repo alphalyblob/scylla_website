@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scylla - Ateliers
-{% endblock %}
+{% block title %}Scylla - Ateliers{% endblock %}
 
-{% block contenu %}
+{% block main %}
 
 
-	<div class="container bg-scylla center-wrap">
+	<main class="container bg-scylla center-wrap">
     {% for atelier in ateliers %}
         {% for image in atelier.imagesAteliers %}
             <div class="card-at">
@@ -22,7 +21,7 @@
             </div>
         {% endfor %}
      {% endfor %}
-	</div>
+	</main>
 
 
 	{# <header></header>

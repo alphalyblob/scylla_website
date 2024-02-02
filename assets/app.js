@@ -20,6 +20,7 @@ import './styles/carousel.css';
 import './styles/evenements.css';
 import './styles/eventdetcar.css';
 import './styles/formulaires.css';
+import './styles/pagination.css';
 
 
 

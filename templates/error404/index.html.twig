@@ -2,15 +2,15 @@
 
 {% block title %}OOPS 404{% endblock %}
 
-{% block body %}
+{% block main %}
 
-<div class="container disp-flex-center-col bg-scylla font-oswald color-white">
+<main class="container disp-flex-center-col bg-scylla font-oswald color-white">
     <div class="disp-flex-center-col marge-top-2">
         <h1>Oops... Il semblerait qu'il y ait un souci.</h1>
         <h3>Vérifie l'URL, il y a peut-être une erreur</h3>
         <p>Sinon, il se peut que ce que l'information que tu essayes d'atteindre est manquante.</p>
         <img src="{{ asset('img/oopsy.png') }}" alt="oopsy">
     </div>
-</div>
+</main>
 
 {% endblock %}

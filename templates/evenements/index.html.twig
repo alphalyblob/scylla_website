@@ -2,9 +2,9 @@
 
 {% block title %}Evenements{% endblock %}
 
-{% block body %}
+{% block main %}
 
-<div class="container bg-scylla center-wrap">
+<main class="container bg-scylla center-wrap">
     {% for event in evenements %}
             <div class="card-ev">
                 <div class="illu-ev">
@@ -29,7 +29,7 @@
             </div>
         
      {% endfor %}
-</div>
+</main>
 
 {% endblock %}
 {# <div class="container bg-scylla color-white font-oswald">

@@ -2,9 +2,9 @@
 
 {% block title %}Scylla - Adhérents{% endblock %}
 
-{% block body %}
+{% block main %}
 
-<div class="container-center bg-scylla color-white font-ysabeau">
+<main class="container-center bg-scylla color-white font-ysabeau">
     
     <a class="td-n color-white font-oswald link-ns medium-font pad-1" href="{{ path('app_infos_adherent_index') }}">INFORMATIONS DES ADHERENTS</a>
     <h1 class="txt-a">Liste des adhérents</h1>
@@ -30,14 +30,14 @@
         </tbody>
        
     </table>
-    <div class="txt-a color-white font-oswald">
+    <section class="txt-a font-oswald">
         {{ knp_pagination_render(adherents) }}
-    </div>
+    </section>
 
 
     
                 
-</div>
+</main>
     
 
  

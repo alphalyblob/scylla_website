@@ -2,9 +2,9 @@
 
 {% block title %}Scylla - Mail de réinitialisation envoyé{% endblock %}
 
-{% block body %}
+{% block main %}
 
-<div class="container bg-scylla disp-flex-center-col color-white font-oswald">
+<main class="container bg-scylla disp-flex-center-col color-white font-oswald">
 
     <h1 class="big-font-xl txt-a upper-text">Mail envoyé</h1>
 
@@ -18,5 +18,5 @@
         <h3 class="txt-a marge-1 pad-1 font-ysabeau">Si tu ne reçois pas le mail, pense à vérifier dans tes spams ou clique sur</h3>
         <a class="go-btn color-white font-oswald disp-flex-around link-ns" href="{{ path('app_forgot_password_request') }}">Renvoyer le mail</a>
     </div>
-</div>
+</main>
 {% endblock %}
