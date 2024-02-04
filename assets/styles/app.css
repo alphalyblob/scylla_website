@@ -306,7 +306,12 @@ body{
 
 .show-btn:hover{
     background-color: white;
-    color:black
+    color:black;
+    cursor: pointer;
+}
+.show-btn:focus{
+    transform: scale(0.8);
+    cursor: pointer;
 }
 
 .center-wrap{
@@ -413,6 +418,13 @@ body{
 
 .border-2{
     border: 2px solid white;
+}
+
+.border-1{
+    border: 1px solid white;
+    border-radius: 1rem;
+    width: fit-content;
+    align-self: center;
 }
 
 .txt-u{

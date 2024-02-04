@@ -8,12 +8,50 @@
 }
 
 
-.sc-table> th, td {
+.sc-table>th,
+td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
+.sc-table-liste {
+   
+    border-collapse: collapse;
+
+    margin: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sc-table-liste th,
+td {
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
 
 
+@media (max-width: 800px) {
 
+    .sc-table-liste thead {
+        display: none;
+    }
+
+    .sc-table-liste tr {
+        display: block;
+        margin-bottom: 40px;
+        
+    }
+
+    .sc-table-liste td {
+        display: block;
+        text-align: center;
+
+    }
+
+    .sc-table-liste td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}

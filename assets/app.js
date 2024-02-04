@@ -16,7 +16,7 @@ import './styles/profile.css';
 import './styles/asso.css';
 import './styles/header.css';
 import './styles/galerie.css';
-import './styles/carousel.css';
+// import './styles/carousel.css';
 import './styles/evenements.css';
 import './styles/eventdetcar.css';
 import './styles/formulaires.css';
@@ -24,7 +24,7 @@ import './styles/pagination.css';
 
 
 
-import './js/carousel.js';
+// import './js/carousel.js';
 
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')

@@ -1,42 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scylla - Infos Adhérents{% endblock %}
+{% block title %}Scylla - Infos Adhérents
+{% endblock %}
 
 {% block main %}
-<main class="container-center bg-scylla color-white font-ysabeau">
-    <h1 class="txt-a">Liste des informations des Adhérents</h1>
 
-    <table class="sc-table">
-        <thead>
-            <tr>
-                <th class="big-font">Nom</th>
-                <th class="big-font">Prénom</th>
-                <th class="big-font">Téléphone</th>
-                <th class="big-font">Adresse</th>
-                <th class="big-font">Date de naissance</th>
-                <th class="big-font">Pratique</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for infos_adherent in infos_adherents %}
-            <tr>
-                <td>{{ infos_adherent.nom }}</td>
-                <td>{{ infos_adherent.prenom }}</td>
-                <td>{{ infos_adherent.telephone }}</td>
-                <td>{{ infos_adherent.adresse }}</td>
-                <td>{{ infos_adherent.dateNaissance ? infos_adherent.dateNaissance|format_datetime('short', 'none', locale='fr') : '' }}</td>
-                <td>{{ infos_adherent.pratique }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">Aucune information d'adhérent pour le moment...</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <section class="txt-a font-oswald">
-        {{ knp_pagination_render(infos_adherents) }}
-    </section>
+	<main class="container-center bg-scylla color-white font-ysabeau">
 
-</main>
+		<h1 class="txt-a pad-1">Liste des informations des Adhérents</h1>
+		<a class="show-btn td-n color-white" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
+
+
+		<table class="sc-table-liste">
+			<thead>
+				<tr>
+					<th class="big-font">Nom</th>
+					<th class="big-font">Prénom</th>
+					<th class="big-font">Téléphone</th>
+					<th class="big-font">Adresse</th>
+					<th class="big-font">Date de naissance</th>
+					<th class="big-font">Pratique</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for infos_adherent in infos_adherents %}
+					<tr>
+						<td>{{ infos_adherent.nom }}</td>
+						<td>{{ infos_adherent.prenom }}</td>
+						<td>{{ infos_adherent.telephone }}</td>
+						<td>{{ infos_adherent.adresse }}</td>
+						<td>{{ infos_adherent.dateNaissance ? infos_adherent.dateNaissance|format_datetime('short', 'none', locale='fr') : '' }}</td>
+						<td>{{ infos_adherent.pratique }}</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td class="big-font-xl font-oswald color-white" colspan="8">Aucune information d'adhérent pour le moment...</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<section class="txt-a font-oswald">
+			{{ knp_pagination_render(infos_adherents) }}
+		</section>
+
+	</main>
 {% endblock %}
+

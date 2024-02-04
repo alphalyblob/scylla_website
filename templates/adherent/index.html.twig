@@ -1,44 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scylla - Adhérents{% endblock %}
+{% block title %}Scylla - Adhérents
+{% endblock %}
 
 {% block main %}
 
-<main class="container-center bg-scylla color-white font-ysabeau">
-    
-    <a class="td-n color-white font-oswald link-ns medium-font pad-1" href="{{ path('app_infos_adherent_index') }}">INFORMATIONS DES ADHERENTS</a>
-    <h1 class="txt-a">Liste des adhérents</h1>
-
-    <table class="sc-table">
-        <thead>
-            <tr>
-                <th class="big-font">NOM - Prénom</th>
-                <th class="big-font">MAIL</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for adherent in adherents %}
-            <tr>
-                <td>{{ adherent.getInfosAdherent() }}</td>
-                <td>{{ adherent.email }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td class="big-font-xl font-oswald color-white" colspan="5">Aucun adhérent enregistré...</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-       
-    </table>
-    <section class="txt-a font-oswald">
-        {{ knp_pagination_render(adherents) }}
-    </section>
+	<main class="container-center bg-scylla color-white font-ysabeau">
 
 
-    
-                
-</main>
-    
+		<h1 class="txt-a pad-1">Liste des adhérents</h1>
+		<a class="show-btn td-n color-white" href="{{ path('app_infos_adherent_index') }}">INFORMATIONS DES ADHERENTS</a>
 
- 
+		<table class="sc-table-liste">
+			<thead>
+				<tr>
+					<th class="big-font">NOM - Prénom</th>
+					<th class="big-font">MAIL</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for adherent in adherents %}
+					<tr>
+						<td>{{ adherent.getInfosAdherent() }}</td>
+						<td>{{ adherent.email }}</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td class="big-font-xl font-oswald color-white" colspan="5">Aucun adhérent enregistré...</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+
+		<section class="txt-a font-oswald">
+			{{ knp_pagination_render(adherents) }}
+		</section>
+
+
+	</main>
+
+
 {% endblock %}
+

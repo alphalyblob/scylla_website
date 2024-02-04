@@ -12,20 +12,20 @@
 		<div class="flex-end disp-flex-around">
 				<a class="color-white head-link" href="{{ path('app_home') }}">ACCUEIL</a>
 			{% if is_granted('ROLE_GESTION') %}
-				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
+				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}" id="monprofil">MON PROFIL</a>
 				<a class="color-white head-link" href="{{ path('admin') }}">ADMINISTRATION</a>
 				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
 			{% elseif is_granted('ROLE_MEMBRE') %}
 				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
 				<a class="color-white head-link" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
 				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
-				
 			{% elseif app.user%}
 				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
 				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
 			{% else %}
 				<a class="color-white head-link" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
 			{% endif %}
+			
 		</div>
 
 	</header>

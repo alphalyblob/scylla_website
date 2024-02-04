@@ -2,6 +2,18 @@
 
 {% block title %}Scylla - Mon Profil{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/carousel.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module">
+        import '{{ asset('js/carousel.js') }}';
+    </script>
+{% endblock %}
+
 
 
 {% block main %}
