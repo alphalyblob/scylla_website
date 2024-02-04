@@ -63,7 +63,7 @@
         <ul class="ul-prof-links area-c">
             <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_adherent_edit', {'id': adherent.id}) }}">Modifier mon mot de passe</a></li>
             <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_infos_adherent_show', {'id': adherent.infosAdherent.id}) }}">Voir mes infos</a></li>
-            <li class="disp-flex-around"><a class="link-hov-u color-white font-oswald big-font" href="{{ path('app_infos_adherent_edit', {'id': adherent.infosAdherent.id}) }}">Modifier mes infos</a></li>
+            
            
             
 		{% if is_granted('ROLE_MEMBRE') %}
