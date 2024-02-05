@@ -22,9 +22,9 @@ class TarifsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextareaField::new('formule'),
-            TextField::new('prix'),
+            // yield IdField::new('id')->hideOnForm(),
+            yield TextareaField::new('formule'),
+            yield TextField::new('prix'),
         ];
     }
     

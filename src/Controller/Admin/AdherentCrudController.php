@@ -53,7 +53,7 @@ class AdherentCrudController extends AbstractCrudController
             ->onlyOnForms();
         
         return [
-            IdField::new('id')->hideOnForm(),
+            // IdField::new('id')->hideOnForm(),
             EmailField::new('email'),
             $passwordnew,
             TextEditorField::new('password')->hideOnForm(),

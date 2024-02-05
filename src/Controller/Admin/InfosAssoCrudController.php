@@ -21,12 +21,12 @@ class InfosAssoCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('nom'),
-            TextareaField::new('description'),
-            TextField::new('telephone'),
-            TextField::new('mail'),
-            TextField::new('siege'),
+            // yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('nom'),
+            yield TextareaField::new('description'),
+            yield TextField::new('telephone'),
+            yield TextField::new('mail'),
+            yield TextField::new('siege'),
         ];
     }
     

@@ -23,14 +23,14 @@ class InfosAdherentCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('nom'),
-            TextField::new('prenom'),
-            TextField::new('telephone'),
-            TextField::new('adresse'),
-            DateField::new('dateNaissance'),
-            TextField::new('pratique'),
-            AssociationField::new('adherent'),  
+            // yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('nom'),
+            yield TextField::new('prenom'),
+            yield TextField::new('telephone'),
+            yield TextField::new('adresse'),
+            yield DateField::new('dateNaissance'),
+            yield TextField::new('pratique'),
+            yield AssociationField::new('adherent'),  
         ];
     }
     

@@ -26,15 +26,16 @@ class AteliersCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield IdField::new('id')->hideOnForm(),
+            // yield IdField::new('id')->hideOnForm(),
             yield TextField::new('label'),
             yield TextareaField::new('description'),
             yield AssociationField::new('cours')
-                    ->onlyOnIndex(),
+                    ->onlyOnForms(),
             yield ArrayField::new('cours')
                     ->onlyOnDetail(),
             yield CollectionField::new('imagesAteliers')
-                    ->setEntryType(ImagesAteliersType::class),
+                    ->setEntryType(ImagesAteliersType::class)
+                    ->hideOnIndex(),
         ];
     }
     

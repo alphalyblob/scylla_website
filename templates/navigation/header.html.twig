@@ -2,31 +2,31 @@
 
 	<header class="header-nav bg-header disp-flex-al-cent">
 
-		<div class="flex-start">
+		<section class="flex-start">
 			<a class="td-n color-white disp-flex-around" href="{{ path('app_home') }}">
                 <img src="{{ asset('img/sc-logo-blanc-transparent.png') }}" class="header-img" alt="Scylla Logo"/>
                 <h1 class="color-white font-oswald">SCYLLA - Arts De La Scène</h1>
             </a>
-		</div>
+		</section>
 
-		<div class="flex-end disp-flex-around">
-				<a class="color-white head-link" href="{{ path('app_home') }}">ACCUEIL</a>
+		<section class="flex-end disp-flex-around">
+				<a class="color-white head-link" href="{{ path('app_home') }}" aria-label="Onglet accueil">ACCUEIL</a>
 			{% if is_granted('ROLE_GESTION') %}
-				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}" id="monprofil">MON PROFIL</a>
+				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}" id="monprofil" aria-label="Onglet profil">MON PROFIL</a>
 				<a class="color-white head-link" href="{{ path('admin') }}">ADMINISTRATION</a>
-				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}" aria-label="Onglet déconnexion">DECONNEXION</a>
 			{% elseif is_granted('ROLE_MEMBRE') %}
-				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-				<a class="color-white head-link" href="{{ path('app_adherent_index') }}">ADHERENTS</a>
-				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}" aria-label="Onglet profil">MON PROFIL</a>
+				<a class="color-white head-link" href="{{ path('app_adherent_index') }}" aria-label="Onglet adhérents">ADHERENTS</a>
+				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}" aria-label="Onglet déconnexion">DECONNEXION</a>
 			{% elseif app.user%}
-				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}">MON PROFIL</a>
-				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+				<a class="color-white head-link" href="{{ path('app_adherent_show', {'id': app.user.id}) }}" aria-label="Onglet profil">MON PROFIL</a>
+				<a class="color-white head-link" href="{{ path('app_logout', {'id': app.user.id}) }}" aria-label="Onglet déconnexion">DECONNEXION</a>
 			{% else %}
-				<a class="color-white head-link" href="{{ path('app_login') }}">COMPTE ADHERENT</a>
+				<a class="color-white head-link" href="{{ path('app_login') }}" aria-label="Onglet connexion">COMPTE ADHERENT</a>
 			{% endif %}
 			
-		</div>
+		</section>
 
 	</header>
 

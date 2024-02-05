@@ -29,7 +29,7 @@ class CoursCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield IdField::new('id')->hideOnForm(),
+            // yield IdField::new('id')->hideOnForm(),
             yield TextField::new('label'),
             yield TextareaField::new('descriptif'),
             yield TextField::new('niveau'),

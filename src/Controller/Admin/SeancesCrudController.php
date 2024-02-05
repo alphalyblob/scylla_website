@@ -24,11 +24,11 @@ class SeancesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            AssociationField::new('cours'),
-            DateTimeField::new('dateDebut'),
-            DateTimeField::new('dateFin'),
-            TextareaField::new('infos'),
+            // yield IdField::new('id')->hideOnForm(),
+            yield AssociationField::new('cours'),
+            yield DateTimeField::new('dateDebut'),
+            yield DateTimeField::new('dateFin'),
+            yield TextareaField::new('infos'),
         ];
     }
     

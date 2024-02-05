@@ -22,9 +22,9 @@ class MembresEquipeCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('fonction'),
-            AssociationField::new('adherent'),
+            // yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('fonction'),
+            yield AssociationField::new('adherent'),
         ];
     }
     

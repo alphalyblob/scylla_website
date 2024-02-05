@@ -21,9 +21,9 @@ class TypeEvenementCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('label'),
-            CollectionField::new('evenements')->hideOnForm(),
+            // yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('label'),
+            yield CollectionField::new('evenements')->hideOnForm(),
         ];
     }
     

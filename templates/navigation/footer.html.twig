@@ -1,33 +1,33 @@
 {% block footer %}
 
 	<footer class="footer-container">
-		<div class="footer-div-1">
-			<div class="footer-div-2">
+		<section class="footer-div-1">
+			<section class="footer-div-2">
 				<a href="{{ path('app_home') }}" class="footer-logo-brand">
 					<img src="{{ asset('img/sc-logo-blanc-transparent.png') }}" class="footer-img" alt="Scylla Logo"/>
 					<span class="footer-span-a font-ysabeau">Scylla - Arts De La Scène</span>
 				</a>
 				<ul class="footer-navlink">
 					<li>
-						<a href="{{ path('app_reseaux') }}" class="footer-navlink-a font-ysabeau">Réseaux</a>
+						<a href="{{ path('app_reseaux') }}" class="footer-navlink-a font-ysabeau" aria-label="Onglet réseaux">Réseaux</a>
 					</li>
 					<li>
-						<a href="{{ path('app_infos_asso_index') }}" class="footer-navlink-a font-ysabeau">À propos</a>
+						<a href="{{ path('app_infos_asso_index') }}" class="footer-navlink-a font-ysabeau" aria-label="Onglet à propos">À propos</a>
 					</li>
 					<li>
-						<a href="{{ path('app_politique') }}" class="footer-navlink-a font-ysabeau">Politique de confidentialité</a>
+						<a href="{{ path('app_politique') }}" class="footer-navlink-a font-ysabeau" aria-label="Onglet politique de confidentialité">Politique de confidentialité</a>
 					</li>
 					<li>
-						<a href="{{ path('app_mentions') }}" class="footer-navlink-a font-ysabeau">Mentions légales</a>
+						<a href="{{ path('app_mentions') }}" class="footer-navlink-a font-ysabeau" aria-label="Onglet mentions légales">Mentions légales</a>
 					</li>
 					<li>
-						<a href="{{ path('app_contact') }}" class="footer-navlink-a font-ysabeau">Contactez-nous</a>
+						<a href="{{ path('app_contact') }}" class="footer-navlink-a font-ysabeau" aria-label="Onglet contact">Contactez-nous</a>
 					</li>
 				</ul>
-			</div>
+			</section>
 			<hr class="footer-hr"/>
 			<span class="footer-copyright font-ysabeau">© 2024 - Scylla - Arts De La Scène - Tous Droits Réservés</span>
-		</div>
+		</section>
 	</footer>
 
 {% endblock %}

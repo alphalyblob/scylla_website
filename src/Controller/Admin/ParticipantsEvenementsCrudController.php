@@ -26,7 +26,7 @@ class ParticipantsEvenementsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield IdField::new('id')->hideOnForm(),
+            // yield IdField::new('id')->hideOnForm(),
             yield AssociationField::new('adherent'),
             yield AssociationField::new('evenement')->autocomplete(),
         ];
