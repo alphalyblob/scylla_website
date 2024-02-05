@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="{{ asset('styles/carousel.css') }}">
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script type="module">
-        import '{{ asset('js/carousel.js') }}';
-    </script>
+
+{% block importmap %}
+    {{ parent()}}
+    {{ importmap('carousel')}}
 {% endblock %}
 
 
@@ -28,7 +27,7 @@
             {% else %}
             <h1 class="font-ysabeau">{{ adherent.infosAdherent.prenom }} {{ adherent.infosAdherent.nom }}</h1>
             {% endif %}
-            <a class="link-hov-u color-white font-oswald" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
+            <a class="link-hov-u color-white font-oswald marge-top-2" href="{{ path('app_logout', {'id': app.user.id}) }}">DECONNEXION</a>
             {# <p>{{ dump(adherent.id) }}</p> #}
         </div>
 

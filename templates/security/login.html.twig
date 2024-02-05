@@ -14,8 +14,7 @@
 
 		{% if app.user %}
 			<div class="font-oswald">
-				Hey
-				{{ app.user.userIdentifier }}, tu es déjà connecté(e)
+				Hey {{ app.user.userIdentifier }}, tu es déjà connecté(e)
 				<button>
 					<a class="font-oswald color-white link-ns" href="{{ path('app_logout') }}">Déconnexion</a>
 				</button>
@@ -27,9 +26,9 @@
         
         <div class="field-box">
             <label class="font-ysabeau big-font" for="inputEmail">Email</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-field mail-field font-oswald" autocomplete="email" required autofocus>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-field mail-field font-oswald" autocomplete="email" placeholder="Indique ton mail *" required autofocus>
             <label class="font-ysabeau big-font" for="inputPassword">Mot de Passe</label>
-            <input type="password" name="password" id="inputPassword" class="form-control form-field mdp-field font-oswald" autocomplete="current-password" required>
+            <input type="password" name="password" id="inputPassword" class="form-control form-field mdp-field font-oswald" autocomplete="current-password" placeholder="Indique ton mot de passe *" required>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			<div class="checkbox mb-3">

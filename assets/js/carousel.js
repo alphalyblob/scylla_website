@@ -1,5 +1,4 @@
 
-
 /* CAROUSEL SEANCES */
 
 const totalSeancesCount = document.getElementById('totalSeancesCount').textContent.trim();
@@ -76,13 +75,17 @@ function initCarousel() {
         cell.style.transform = 'rotateX(' + -cellAngle + 'deg) translateZ(' + radius + 'px)';
     }
 
-    
+    console.log('initcarousel')
     rotateCarousel();
 }
 
 
 
 initCarousel();
+
+
+
+    
 
 
 
@@ -161,4 +164,3 @@ function initCarousel2() {
 initCarousel2();
 
 /* FIN CAROUSEL EVENEMENTS */
-

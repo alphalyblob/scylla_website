@@ -31,7 +31,11 @@ class AdherentType extends AbstractType
                 'label_attr' => [
                     'class' => 'sc-form-label marge-top-1dem'
                 ],
-                'attr' => ['class' => 'sc-form'],
+                'attr' => [
+                    'class' => 'sc-form',
+                    'placeholder' => 'Nouveau mot de passe *'
+                ],
+                
             ],
             'second_options' => [
                 'label' => 'Répéter le mot de passe',
@@ -39,7 +43,8 @@ class AdherentType extends AbstractType
                     'class' => 'sc-form-label marge-top-1dem'
                 ],
                 'attr' => [
-                    'class' => 'sc-form'
+                    'class' => 'sc-form',
+                    'placeholder' => 'Répéter *'
                 ],
             ],
         ]);

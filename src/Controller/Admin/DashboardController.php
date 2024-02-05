@@ -66,6 +66,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Infos Scylla', 'fas fa-building', InfosAsso::class);
 
         yield MenuItem::linkToRoute('Accueil Scylla', 'fas fa-home', 'app_home');
+       
 
     }
 }

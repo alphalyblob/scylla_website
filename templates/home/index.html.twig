@@ -5,33 +5,33 @@
 
 {% block main %}
 	<main class="container home bg-scylla">
-		<img class="image-bg container-size" src="/img/20230624-200623-06132-Thomas-Brunet.jpg">
+		<img class="image-bg container-size" src="/img/20230624-200623-06132-Thomas-Brunet.jpg" alt="Photo sur scène">
 
-		<div class="block-brand-title">
+		<section class="block-brand-title">
 
 			<h1 class="color-white font-oswald marge-0 big-brand-font">SCYLLA</h1>
 			<h4 class="color-white font-ysabeau marge-0 medium-brand-font font-thin">Arts De La Scène</h4>
-		</div>
+		</section>
 
-		<div class="block-menu of-hid">
+		<section class="block-menu of-hid">
 			<nav class="sc-nav of-hid">
 				<ul class="ls-n sc-ul">
 					<li class="sc-li of-hid">
-						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_infos_asso_index') }}">A PROPOS</a>
+						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_infos_asso_index') }}" aria-label="Onglet à propos">A PROPOS</a>
 					</li>
 					<li class="sc-li of-hid">
-						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_ateliers_index') }}">ATELIERS</a>
+						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_ateliers_index') }}" aria-label="Onglet ateliers">ATELIERS</a>
 					</li>
 					<li class="sc-li of-hid">
-						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_evenements_index') }}">EVENEMENTS</a>
+						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_evenements_index') }}" aria-label="Onglet évènements">EVENEMENTS</a>
 					</li>
 					<li class="sc-li of-hid">
-						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_galerie_index') }}">GALERIE</a>
+						<a class="td-n color-white font-oswald sc-link big-font-xl of-hid" href="{{ path('app_galerie_index') }}" aria-label="Onglet galerie">GALERIE</a>
 					</li>
 
 				</ul>
 			</nav>
-		</div>
+		</section>
 
 	</main>
 
