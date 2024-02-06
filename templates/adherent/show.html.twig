@@ -76,7 +76,42 @@
             <div class="box-titre marge-top-2 disp-flex-center-col">
                 <h3 class="font-oswald color-white big-font">MES SEANCES</h3>
             </div>
+            {# Compter le nombre de séances #}
+            {% set ts = 0 %}
+            {% for participantsCours in adherent.participantsCours %}
+                {% for cours in participantsCours.cours %}
+                    {% for seance in cours.seances %}
+                        {% set ts = ts + 1 %}
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+            {% if ts == 0 %}
+            <span class="font-ysabeau">Pas de séance de prévu pour le moment...</span>
+            {% endif %}
             
+            {# Si il y a moins de 3 séances elles seront présentées sous cette forme #}
+            {% if ts < 3 %}
+            <div class="carousel">
+                    <div class="carousel__scene">
+                        <ul>
+                        {% for participantsCours in adherent.participantsCours %}
+                            {% for cours in participantsCours.cours %}
+                                {% for seance in cours.seances %}
+                                <div class="carousel1-min-cellcount">
+                                    <li class = "ls-n font-oswald">{{seance.cours.label}}</li>
+                                    <li class = "ls-n font-ysabeau">{{seance.dateDebut|format_datetime('full', locale='fr')}}</li>
+                                    {% if seance.infos is not null %}
+                                    <li class = "ls-n font-ysabeau">Infos : {{ seance.infos }}</li>
+                                    {% endif %}
+                                </div>
+                               {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {# Sinon ce sera présenté sous forme de carrousel #}
+            {% else %}
             <div class="carousel">
                 <div class="carousel__scene">
                     <ol class="carousel__list">
@@ -95,7 +130,6 @@
                             {% endfor %}
                         {% endfor %}
                     {% endfor %}
-                    
                     </ol>
                 </div>
                 <div class="carousel__controls">
@@ -105,16 +139,49 @@
             </div>
 
             <div id="totalSeancesCount" style="display: none;">{{ totalSeances }}</div>
+            {% endif %}
         </div>
 
 
-
-
-
+        
+        
         <div class="area-e disp-flex-center">
             <div class="box-titre marge-top-2 disp-flex-center-col">
                 <h3 class="font-oswald color-white big-font txt-a">MES EVENEMENTS</h3>
             </div>
+
+            {# Compter le nombre d'évènements #}
+            {% set te = 0 %}
+                {% for participantsEvenements in adherent.participantsEvenements %}
+                    {% for event in participantsEvenements.evenement %}
+                        {% set te = te + 1 %}
+                    {% endfor %}
+                {% endfor %}
+            {% if te == 0 %}
+            <span class="font-ysabeau">Pas d'évènement de prévu pour le moment...</span>
+            {% endif %}
+            {# Si il y a moins de 3 évènements ils seront présentés sous cette forme #}
+            {% if te < 3 %}
+                <div class="carousel2">
+                    <div class="carousel__scene2">
+                        <ul>
+                            {% for participantsEvenements in adherent.participantsEvenements %}
+                                {% for event in participantsEvenements.evenement %}
+                                <div class="carousel2-min-cellcount">
+                                    <li class = "ls-n font-oswald">{{event.titre}}</li>
+                                    <li class = "ls-n font-ysabeau">{{event.date|format_datetime('full', locale='fr')}}</li>
+                                    {% if event.commentaire is not null %}
+                                    <li class = "ls-n font-ysabeau">{{event.commentaire}}</li>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+                </div>
+            {# Sinon ce sera présenté sous forme de carrousel #}
+            {% else %}
             <div class="carousel2">
                 <div class="carousel__scene2">
                     <ol class="carousel__list2">
@@ -128,7 +195,7 @@
                             <span class="event_comm">Infos : {{ event.commentaire }}</span>
                             {% endif %}
                         </li>
-                            {% set totalEvents = totalEvents + 1 %}
+                    {% set totalEvents = totalEvents + 1 %}
                         {% endfor %}
                     {% endfor %}
                     </ol>
@@ -139,11 +206,9 @@
                 </div>
             </div>
 
-            <div id="totalEventsCount" style="display: none;">{{ totalEvents }}</div>
+            <div id="totalEventsCount"  style="display: none;">{{ totalEvents }}</div>
+            {% endif %}
         </div>
-
-        
-
 		
 	</main>
 {% endblock %}

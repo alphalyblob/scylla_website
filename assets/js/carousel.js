@@ -114,6 +114,7 @@ const theta2 = 360 / cellCount2;
 let selectedIndex2 = 0;
 
 function rotateCarousel2() {
+    
     const angle2 = theta2 * selectedIndex2 * -1;
     carousel2.style.transform = 'translateZ(' + -radius2 + 'px) ' + 'rotateX(' + -angle2 + 'deg)';
 
@@ -123,7 +124,7 @@ function rotateCarousel2() {
     cells2.forEach((cell2, index2) => {
         if (cellIndex2 === index2) {
             if (!cell2.classList.contains('selected'))
-                cell2.classList.add('selected');
+            cell2.classList.add('selected');
         }
         else {
             if (cell2.classList.contains('selected')) {
@@ -131,6 +132,7 @@ function rotateCarousel2() {
             }
         }
     });
+
 }
 
 function selectPrev2() {
@@ -150,8 +152,6 @@ let nextButton2 = document.querySelector('.next-button2');
 nextButton2.addEventListener('click', selectNext2);
 
 function initCarousel2() {
-
-
     for (let j = 0; j < cells2.length; j++) {
         const cell2 = cells2[j];
         const cellAngle2 = theta2 * j;

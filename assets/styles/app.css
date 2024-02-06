@@ -192,18 +192,13 @@ body{
     left: 0;
     bottom: 0;
     width: 0;
-    /* La largeur initiale de la ligne est zéro */
     height: 1px;
-    /* Hauteur de la ligne */
     background-image: linear-gradient(to right, #fff, #0032B4);
-    /* Dégradé de couleur */
     transition: width 0.4s;
-    /* Transition sur la propriété width pendant 0.4s */
 }
 
 .sc-link:hover::after {
     width: 100%;
-    /* La ligne s'étend à 100% de la largeur lorsqu'on survole le lien */
 }
 
 

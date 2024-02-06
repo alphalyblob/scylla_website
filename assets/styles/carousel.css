@@ -116,6 +116,18 @@
     color: white;
 }
 
+.carousel1-min-cellcount{
+    border: 2px solid white;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    background-color: rgba(128, 128, 128, 0.75);
+}
+
 .carousel__cell:nth-child(1) { transform: rotateX(  0deg) translateZ(288px); }
 .carousel__cell:nth-child(2) { transform: rotateX( 40deg) translateZ(288px); }
 .carousel__cell:nth-child(3) { transform: rotateX( 80deg) translateZ(288px); }
@@ -251,6 +263,18 @@
     color: white;
 }
 
+.carousel2-min-cellcount{
+    border: 2px solid white;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    background-color: rgba(128, 128, 128, 0.75);
+}
+
 .carousel__cell2:nth-child(1) { transform: rotateX(  0deg) translateZ(288px); }
 .carousel__cell2:nth-child(2) { transform: rotateX( 40deg) translateZ(288px); }
 .carousel__cell2:nth-child(3) { transform: rotateX( 80deg) translateZ(288px); }
@@ -315,6 +339,30 @@
         
         font-size: 18px;
     }
+
+    .carousel1-min-cellcount{
+        border: 2px solid white;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        background-color: rgba(128, 128, 128, 0.75);
+    }
+
+    .carousel2-min-cellcount{
+        border: 2px solid white;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        background-color: rgba(128, 128, 128, 0.75);
+    }
 }
 
 /*TABLETTE*/
@@ -361,6 +409,29 @@
         font-size: 2rem;
     }
 
+    .carousel1-min-cellcount{
+        border: 2px solid white;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        background-color: rgba(128, 128, 128, 0.75);
+    }
+
+    .carousel2-min-cellcount{
+        border: 2px solid white;
+        border-radius: 1rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        background-color: rgba(128, 128, 128, 0.75);
+    }
     
 
 }
