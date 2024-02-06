@@ -2,13 +2,13 @@
 .galerie-disp{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    align-self: center;
+    justify-content: center;
 }
 
 .up-img{
-    max-width: 400px;
-    min-width: auto;
     height: auto;
+    width: 250px;
     border: 1px solid white;
     border-radius: 0.5rem;
     margin: 1rem;

@@ -6,30 +6,52 @@
 {% block main %}
 
 <main class="container-center bg-scylla color-white font-oswald">
-	
+
+{% if app.user %}
+	<h2 class="txt-a marge-1">Photos des évènements</h2>
+	{% if ev_images|length > 0 %}
 	<div class="galerie-disp">
-	
-	    {% for ev_image in ev_images %}
-	        <img src="{{ asset('images/evenements/' ~ ev_image.nom) }}" class="up-img"> 
-	    {% else %}
-	        <h1 colspan="7">Photos à venir...</h1>
-	    {% endfor %}
-		<section class="txt-a font-oswald">
-        	{{ knp_pagination_render(ev_images) }}
-    	</section>
-
-
-		{% if app.user %}
-		
-			{% for co_image in co_images %}
-				<img src="{{ asset('images/cours/' ~ co_image.nom) }}" class="up-img"> 
-			{% else %}
-				<h1 colspan="7">Photos à venir...</h1>
-			{% endfor %}
-		{% endif %}
-	
-	
+		{% for ev_image in ev_images %}
+			<img src="{{ asset('images/evenements/' ~ ev_image.nom) }}" class="up-img"> 
+		{% endfor %}
 	</div>
+	<section class="txt-a font-oswald">
+		{{ knp_pagination_render(ev_images) }}
+	</section>
+	{% else %}
+		<span class="font-ysabeau color-white txt-a marge-1">Plus de photos d'évènements à venir...</span>
+	{% endif %}
+
+	<h2 class="txt-a marge-1">Photos des cours</h2>
+	{% if co_images|length > 0 %}
+	<div class="galerie-disp">
+		{% for co_image in co_images %}
+			<img src="{{ asset('images/cours/' ~ co_image.nom) }}" class="up-img">
+		{% endfor %}
+	</div>
+	<section class="txt-a font-oswald">
+		{{ knp_pagination_render(co_images) }}
+	</section>
+	{% else %}
+		<span class="font-ysabeau color-white txt-a marge-1">Plus de photos de cours à venir...</span>
+	{% endif %}
+{% else %}
+	<h2 class="txt-a marge-1">Photos des évènements</h2>
+	{% if ev_images|length > 0 %}
+	<div class="galerie-disp">
+		{% for ev_image in ev_images %}
+			<img src="{{ asset('images/evenements/' ~ ev_image.nom) }}" class="up-img"> 
+		{% endfor %}
+	</div>
+	<section class="txt-a font-oswald">
+		{{ knp_pagination_render(ev_images) }}
+	</section>
+	{% else %}
+		<span class="font-ysabeau color-white txt-a marge-1">Plus de photos d'évènements à venir...</span>
+	{% endif %}
+{% endif %}
+	
+	
 	
 	
 	

@@ -22,13 +22,13 @@ class GalerieController extends AbstractController
         $ev_images = $paginatorInterface->paginate(
             $evdata,
             $request->query->getInt('page', 1),
-            2
+            3
         );
         $codata = $imagesCoursRepository->findAll();
         $co_images = $paginatorInterface->paginate(
             $codata,
             $request->query->getInt('page', 1),
-            2
+            3
         );
         return $this->render('galerie/index.html.twig', [
             
